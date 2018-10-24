@@ -50,7 +50,7 @@
                             </FormItem>
                             </Col>
                             <Col span='6' style='width:29%;' offset='1'>
-                            <Button  type='default' style='width:100%' @click='onGetCaptcha' :disabled='!show'>
+                            <Button type='default' style='width:100%' @click='onGetCaptcha' :disabled='!show'>
                                 <span v-show='show'>获取验证码</span>
                                 <span v-show='!show' class='count'>{{count}} s</span>
                             </Button>
@@ -81,7 +81,7 @@
             <span>其他登录方式</span>
             <span>
                 <a @click="See('https://github.com/wzm-Bob/VUE.git')">
-                    <Icon type='social-tux'></Icon>
+                    <Icon type="ios-alarm-outline" />
                 </a>
                 <!-- 这里跳外站链接不能用router-link  -->
                 <!-- <router-link @click="See('https://github.com/wzm-Bob/VUE.git')">
@@ -90,12 +90,12 @@
             </span>
             <span>
                 <a @click="See('https://github.com/wzm-Bob/VUE.git')">
-                    <Icon type='social-chrome'></Icon>
+                    <Icon type="logo-android" />
                 </a>
             </span>
             <span>
                 <a @click="See('https://github.com/wzm-Bob/VUE.git')">
-                    <Icon type='social-python'></Icon>
+                   <Icon type="logo-apple" />
                 </a>
             </span>
             </Col>
@@ -111,53 +111,12 @@
     </div>
 </template>
 <script>
-import { loginByUsername } from "../../api/api.js";
+// import { loginByUsername } from "../../api/api.js";
+import { validateUser, validatePass, validatePhone, validateCaptcha } from "../../utils/valid.js";
 //Alt+Shift+F格式化
 export default {
     name: 'loginWrap',
     data() {
-        const validateUser = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("用户名不能为空"));
-            } else if (!/^[a-zA-Z0-9_\u4e00-\u9fa5]+$/.test(value)) {
-                callback(new Error("用户名只能包含中英文字符，数字和下划线"));
-            } else {
-                callback();
-            }
-        };
-        const validatePass = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("密码不能为空"));
-            } else if (!/^[0-9a-zA-Z]{6,14}$/.test(value)) {
-                callback(new Error(" 登录密码只能为6-14位数字或英文字符哦！"));
-            } else {
-                /*看来必须要有else啊 不然一直转圈刷新*/
-                callback();
-            }
-        };
-        const validatePhone = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("手机号不能为空"));
-            } else if (
-                !/^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/.test(
-                    value
-                )
-            ) {
-                callback(new Error(" 手机号码格式错啦!"));
-            } else {
-                callback();
-            }
-        };
-        const validateCaptcha = (rule, value, callback) => {
-            if (value === "") {
-                callback(new Error("验证码不能为空"));
-            } else if (!/^[0-9]*$/.test(value)) {
-                callback(new Error("验证码不能是非数字"));
-            } else {
-                callback();
-            }
-        };
-
         return {
             show: true,
             count: "",
@@ -233,7 +192,7 @@ export default {
                 this.formLogin.password = localStorage.getItem("password");
                 setTimeout(() => {
                     this.$router.push({ name: "IndexPage" });
-                }, 6000);
+                }, 2000);
             }
         },
         beforeSubmit(name) {
@@ -243,7 +202,6 @@ export default {
         onSubmit(name) {
             this.$refs[name].validate(valid => {
                 if (valid) {
-     
                     this.validBehind(name);
                 } else {
                     return false;
@@ -263,29 +221,28 @@ export default {
                 usercap = this.formLogin.captcha;
             }
             //let loginInfo = this.formLogin;
-            loginByUsername()
-            .then(function (response) {
+           /*  loginByUsername().then(function (response) {
                 debugger
                 console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-      
-           /*  this.$store
-                .dispatch("login", {
-                    user: usermain,
-                    password: usercap
-                })
-                .then(res => {
-                    debugger
-                    const infos = JSON.parse(res.text);
-                    if (infos.status === "ok") {
-                        this.onSuccess(infos);
-                    } else {
-                        this.onError(infos);
-                    }
+            }).catch(function (error) {
+                    console.log(error);
                 }); */
+
+              this.$store
+                 .dispatch("login", {
+                     user: usermain,
+                     password: usercap
+                 })
+                 .then(res => {
+                     debugger
+                     /* JSON.parse() 方法用于将一个 JSON 字符串转换为对象 */
+                     const infos = res.data;
+                     if (infos.status === "ok") {
+                         this.onSuccess(infos);
+                     } else {
+                         this.onError(infos);
+                     }
+                 }); 
         },
         onSuccess(res) {
             debugger
@@ -301,7 +258,7 @@ export default {
                 localStorage.removeItem("password");
             }
             // console.log('complete!')
-            this.$router.push({ name: "IndexPage" });
+            this.$router.push({ name: "HomeLayout" });
         },
         onError(err) {
             this.$Modal.error({

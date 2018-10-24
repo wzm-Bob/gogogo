@@ -1,11 +1,11 @@
 
-const TokenKey:string = 'account'
+const TokenKey = 'account'
 
 export function getToken() {
     return sessionStorage.getItem(TokenKey)
 }
 
-export function setToken(token:string) {
+export function setToken(token) {
     return sessionStorage.setItem(TokenKey, token)
 }
 

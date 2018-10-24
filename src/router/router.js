@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import LoginLayout from "../public/loginLayout.vue";
+import HomeLayout from "../public/homeLayout.vue";
 
 Vue.use(Router);
 /* 这里使用官方推荐的懒加载import */
@@ -25,6 +26,32 @@ export const commonRouter = [
         name: "register",
         component: () =>
           import("../views/register/register.vue")
+      },
+      {
+        path: "/registerSuccess",
+        name: "registerSuccess",
+        component: () =>
+          import("../views/register/registerSuccess.vue")
+      }
+    ]
+  },
+  {
+    path: "/HomeLayout",
+    name: "HomeLayout",
+    component: HomeLayout,
+    redirect: '/dashboard/analysis',
+    children: [
+      {
+        path: "/dashboard/analysis",
+        name: "analysis",
+        component: () =>
+          import("../views/dashboard/analysis.vue")
+      },
+      {
+        path: "/dashboard/workplace",
+        name: "workplace",
+        component: () =>
+          import("../views/dashboard/workplace.vue")
       }
     ]
   }
