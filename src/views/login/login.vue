@@ -27,7 +27,7 @@
                         </Row>
                     </FormItem>
                     <FormItem>
-                        <Button type='primary' @click='onSubmit(`account`)' :disabled='formLogin.isDisabled' :class='{disabled: formLogin.isDisabled}' long>{{formLogin.loginState}}</Button>
+                        <Button type='primary' @click='onSubmit(`account`)' :disabled='formLogin.isDisabled' :class='{disabled:formLogin.isDisabled}' long>{{formLogin.loginState}}</Button>
                         <!--  <Button type='primary'  @click='formLoginReset('formLogin')' long>重置</Button> -->
                     </FormItem>
                 </Form>
@@ -50,7 +50,7 @@
                             </FormItem>
                             </Col>
                             <Col span='6' style='width:29%;' offset='1'>
-                            <Button type='ghost' style='width:100%' @click='onGetCaptcha' :disabled='!show'>
+                            <Button  type='default' style='width:100%' @click='onGetCaptcha' :disabled='!show'>
                                 <span v-show='show'>获取验证码</span>
                                 <span v-show='!show' class='count'>{{count}} s</span>
                             </Button>
@@ -111,6 +111,7 @@
     </div>
 </template>
 <script>
+import { loginByUsername } from "../../api/api.js";
 //Alt+Shift+F格式化
 export default {
     name: 'loginWrap',
@@ -262,7 +263,7 @@ export default {
                 usercap = this.formLogin.captcha;
             }
             //let loginInfo = this.formLogin;
-            axios.get('/login/login')
+            loginByUsername()
             .then(function (response) {
                 debugger
                 console.log(response);
