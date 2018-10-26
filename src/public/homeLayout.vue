@@ -1,6 +1,8 @@
 <template>
   <div class='layout'>
-    <public-head></public-head>
+    <public-head>
+      <p slot="common">通用头</p>
+    </public-head>
     <div class="public-wrap">
       <div class="public-menu">
         <public-menu></public-menu>
@@ -33,7 +35,7 @@ export default {
 .layout{width: 100%;height: 100%;}
 .public-wrap {
    position: relative;
-    top: 90px;
+
     height: calc(100% - 90px);
 }
 .public-menu{

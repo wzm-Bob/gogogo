@@ -1,20 +1,37 @@
 <template>
-    <div class='layout'>
-        <public-head></public-head>
-        <div class="public-wrap">
-            <div class="index_ls_list_wrap">
-                <ul class="index_ls_list" id="index_menu">
-                    <li class="index_ls_item0 jcxx" v-for="(item,index) in moduleData" 
-                    :key="index" 
-                    :style="{backgroundImage:'url(../assets/index-ls/'+item.icon+'.png)'}">
-                        <router-link  :to="item.url">
-                            <div class="item-name">{{item.name}}</div>
-                        </router-link>
-                    </li>
-                </ul>
-            </div>
-        </div>
+  <div class='layout'>
+    <public-head>
+        <a class="base-home" slot="entry" href="/lsz/index.jsp">返回首页</a>
+     <!--  <div slot="entry">
+        <Dropdown placement="bottom-start">
+          <a href="javascript:void(0)">
+            个人中心
+            <Icon type="ios-arrow-down"></Icon>
+          </a>
+          <DropdownMenu slot="list">
+            <DropdownItem>驴打滚</DropdownItem>
+            <DropdownItem>炸酱面</DropdownItem>
+            <DropdownItem>豆汁儿</DropdownItem>
+            <DropdownItem>冰糖葫芦</DropdownItem>
+            <DropdownItem>北京烤鸭</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </div> -->
+
+    </public-head>
+    <div class="public-wrap">
+      <div class="index_ls_list_wrap">
+        <ul class="index_ls_list" id="index_menu">
+          <li class="index_ls_item0 jcxx" v-for="(item,index) in moduleData" :key="index" :style="{backgroundImage:'url(../assets/index-ls/'+item.icon+'.png)'}">
+            <router-link :to="item.url">
+              <div class="item-name">{{item.name}}</div>
+            </router-link>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+  <!-- 拿到用户的权限 生成对应的用户中心 菜单数据 从这里又下发到对应的页面 -->
 </template>
 <script>
 import PublicHead from "../components/PublicHead";
@@ -75,7 +92,6 @@ export default {
 }
 .public-wrap {
   position: relative;
-  top: 90px;
   height: calc(100% - 90px);
 }
 .public-menu {
@@ -89,10 +105,10 @@ export default {
   background-size: contain;
   list-style: none;
 }
-.index_ls_list li a{
-    width: 100%;
-    height: 100%;
-    display: inline-block;
+.index_ls_list li a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
 }
 .public-content {
   overflow: hidden;
