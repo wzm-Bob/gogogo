@@ -4,11 +4,12 @@
         <div class="public-wrap">
             <div class="index_ls_list_wrap">
                 <ul class="index_ls_list" id="index_menu">
-                    <li class="index_ls_item0 jcxx"
-                     v-for="(item,index) in moduleData" 
-                     :key="index"
-                     :style="{backgroundImage:'url(../assets/index-ls/'+item.icon+')'}">
-                        <div class="item-name">{{item.name}}</div>
+                    <li class="index_ls_item0 jcxx" v-for="(item,index) in moduleData" 
+                    :key="index" 
+                    :style="{backgroundImage:'url(../assets/index-ls/'+item.icon+'.png)'}">
+                        <router-link  :to="item.url">
+                            <div class="item-name">{{item.name}}</div>
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -24,38 +25,38 @@ export default {
   },
   data() {
     return {
-        moduleData:[
-            {
-                url:'11',
-                name:'基础信息',
-                icon:'index-item-bg-jcxx.png'
-            },
-             {
-                url:'12',
-                name:'金戈铁马',
-                icon:'index-item-bg-tzgg.png'
-            },
-             {
-                url:'11',
-                name:'马踏飞燕',
-                icon:'index-item-bg-wtcz.png'
-            },
-             {
-                url:'11',
-                name:'大漠穷秋',
-                icon:'index-item-bg-xxbs.png'
-            },
-             {
-                url:'11',
-                name:'图穷匕见',
-                icon:'index-item-bg-gzrz.png'
-            },
-             {
-                url:'11',
-                name:'大罗金仙',
-                icon:'index-item-bg-zhzx.png'
-            }
-        ]
+      moduleData: [
+        {
+          url: "/dashboard/analysis",
+          name: "基础信息",
+          icon: "index-item-bg-jcxx"
+        },
+        {
+          url: "/dashboard/analysis",
+          name: "金戈铁马",
+          icon: "index-item-bg-tzgg"
+        },
+        {
+          url: "/dashboard/analysis",
+          name: "马踏飞燕",
+          icon: "index-item-bg-wtcz"
+        },
+        {
+          url: "/dashboard/analysis",
+          name: "大漠穷秋",
+          icon: "index-item-bg-xxbs"
+        },
+        {
+          url: "/dashboard/analysis",
+          name: "图穷匕见",
+          icon: "index-item-bg-gzrz"
+        },
+        {
+          url: "/dashboard/analysis",
+          name: "大罗金仙",
+          icon: "index-item-bg-zhzx"
+        }
+      ]
     };
   },
   computed: {},
@@ -82,11 +83,16 @@ export default {
   height: auto;
   float: left;
 }
-.index_ls_list li{
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    list-style: none;
+.index_ls_list li {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  list-style: none;
+}
+.index_ls_list li a{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
 }
 .public-content {
   overflow: hidden;
