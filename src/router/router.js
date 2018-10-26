@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import LoginLayout from "../public/loginLayout.vue";
 import HomeLayout from "../public/homeLayout.vue";
+import ModuleEntry from "../public/moduleEntry.vue";
 
 Vue.use(Router);
 /* 这里使用官方推荐的懒加载import */
@@ -34,6 +35,11 @@ export const commonRouter = [
           import("../views/register/registerSuccess.vue")
       }
     ]
+  },
+  {
+    path: "/ModuleEntry",
+    name: "ModuleEntry",
+    component: ModuleEntry
   },
   {
     path: "/HomeLayout",

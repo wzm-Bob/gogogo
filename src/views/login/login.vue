@@ -258,7 +258,7 @@ export default {
                 localStorage.removeItem("password");
             }
             // console.log('complete!')
-            this.$router.push({ name: "HomeLayout" });
+            this.$router.push({ name: "ModuleEntry" });
         },
         onError(err) {
             this.$Modal.error({
