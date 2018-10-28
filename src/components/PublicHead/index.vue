@@ -1,9 +1,10 @@
 <template>
     <div class="pub-header">
+        <!-- <h3></h3>
         <slot name='entry'></slot>
-        <slot name='common'></slot>
-        <div class="base-title"></div>
-        <div class="base-link-wrap">
+        <slot name='common'></slot> -->
+        <div class="base-title">社会大学研发管理系统</div>
+        <!-- <div class="base-link-wrap">
             <Dropdown placement="bottom-start">
                 <a href="javascript:void(0)">
                     菜单(左)
@@ -17,9 +18,10 @@
                     <DropdownItem>北京烤鸭</DropdownItem>
                 </DropdownMenu>
             </Dropdown>
-        </div>
-        <div class="jzfp-navi" style="width: 714.734px;">
-            <Carousel v-model="value1" loop :dots="none" :radius-dot="false" :arrow="always">
+        </div> -->
+        <div class="user-center">个人中心</div>
+        <div class="jzfp-navi">
+            <Carousel v-model="value3" :autoplay="setting.autoplay" :autoplay-speed="setting.autoplaySpeed" :dots="setting.dots" :radius-dot="setting.radiusDot" :trigger="setting.trigger" :arrow="setting.arrow">
                 <CarouselItem>
                     <div class="demo-carousel">菜单一</div>
                 </CarouselItem>
@@ -32,15 +34,11 @@
                 <CarouselItem>
                     <div class="demo-carousel">菜单一4</div>
                 </CarouselItem>
-                  <CarouselItem>
+                <CarouselItem>
                     <div class="demo-carousel">菜单一5</div>
                 </CarouselItem>
-                  <CarouselItem>
+                <CarouselItem>
                     <div class="demo-carousel">菜单一6</div>
-                </CarouselItem>
-
-                  <CarouselItem>
-                    <div class="demo-carousel">菜单一7</div>
                 </CarouselItem>
             </Carousel>
         </div>
@@ -49,11 +47,19 @@
 </template>
 <script>
 export default {
-    data(){
-        return{
-            value1: 0
-        }
-    }
+  data() {
+    return {
+        value3:0,
+      setting: {
+        autoplay: false,
+        autoplaySpeed: 2000,
+        dots: "none",
+        radiusDot: false,
+        trigger: "click",
+        arrow: "always"
+      }
+    };
+  }
 };
 </script>
 <style>
@@ -61,17 +67,29 @@ export default {
   position: relative;
   width: 100%;
   height: 90px;
+  line-height: 90px;
   text-align: center;
   padding: 0 20px;
   max-height: 110px;
+  overflow: hidden;
   background: url(../../assets/index-ls/header-bg.png) no-repeat center / cover;
 }
+.ivu-carousel-arrow>* {
+    vertical-align: baseline;
+    top: -21px;
+    position: relative;
+}
 .base-title {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
   float: left;
-  width: 360px;
-  height: 70px;
-  margin: 10px 0 0 20px;
   /*  background: url(img/index-ls/headder-base-title.png) no-repeat center / cover; */
+}
+.user-center {
+  width: 180px;
+  float: right;
 }
 .base-link-wrap {
   float: right;
@@ -81,9 +99,15 @@ export default {
   color: #fff;
   text-align: center;
 }
+.ivu-carousel-list{
+    margin: 0 40px;
+}
+.ivu-carousel-item{
+    width:120px!important;
+}
 .jzfp-navi {
   float: right;
-  margin-right: 30px;
+  width:600px;
 }
 </style>
 

@@ -22,7 +22,7 @@
     <div class="public-wrap">
       <div class="index_ls_list_wrap">
         <ul class="index_ls_list" id="index_menu">
-          <li class="index_ls_item0 jcxx" v-for="(item,index) in moduleData" :key="index" :style="{backgroundImage:'url(../assets/index-ls/'+item.icon+'.png)'}">
+          <li  v-for="(item,index) in moduleData" :key="index" :class="setClass(index,item.difcls)" :style="setStyle(item.icon)">
             <router-link :to="item.url">
               <div class="item-name">{{item.name}}</div>
             </router-link>
@@ -45,46 +45,65 @@ export default {
       moduleData: [
         {
           url: "/dashboard/analysis",
-          name: "基础信息",
-          icon: "index-item-bg-jcxx"
+          name: "纵马江湖",
+          icon: "index-item-bg-jcxx",
+          difcls:"jcxx"
         },
         {
           url: "/dashboard/analysis",
           name: "金戈铁马",
-          icon: "index-item-bg-tzgg"
+          icon: "index-item-bg-tzgg",
+          difcls:"wtcl"
         },
         {
           url: "/dashboard/analysis",
           name: "马踏飞燕",
-          icon: "index-item-bg-wtcz"
+          icon: "index-item-bg-wtcz",
+          difcls:"gzrz"
         },
         {
           url: "/dashboard/analysis",
           name: "大漠穷秋",
-          icon: "index-item-bg-xxbs"
+          icon: "index-item-bg-xxbs",
+          difcls:"tzgg"
         },
         {
           url: "/dashboard/analysis",
           name: "图穷匕见",
-          icon: "index-item-bg-gzrz"
+          icon: "index-item-bg-gzrz",
+          difcls:"xxbs"
         },
         {
           url: "/dashboard/analysis",
           name: "大罗金仙",
-          icon: "index-item-bg-zhzx"
+          icon: "index-item-bg-zhzx",
+          difcls:"xtgl"
         }
       ]
     };
   },
   computed: {},
-  methods: {},
+  methods: {
+    setClass(index,cls) {
+            //let obj = {face: true}
+            let obj={}
+            obj[`index_ls_item${index}`] = true
+            obj[`${cls}`] = true
+            return obj
+        },
+    setStyle(sty) {
+      // let obj ={'background':'none'}
+      // obj[background] = `url(../assets/img/${sty}.png)`
+      // return obj
+    }
+  },
   created() {},
   mounted() {}
 };
 </script>
 <style scoped>
 .layout {
-  background: url(../assets/index-ls/index-bg.jpg) no-repeat center / cover;
+  background: url(../assets/img/index-bg.jpg) no-repeat center / cover;
 }
 .layout {
   width: 100%;
@@ -133,36 +152,64 @@ export default {
   margin: 2% 0 0 5%;
   cursor: pointer;
 }
+.index_ls_item0{
+   background: url(../assets/img/index-item-bg-jcxx.png) no-repeat center /
+    contain;
+}
 .index_ls_list .jcxx:before {
-  background: url(../assets/index-ls/index-item-icon-jcxx.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-jcxx.png) no-repeat center /
+    contain;
+}
+.index_ls_item1 {
+  background: url(../assets/img/index-item-bg-wtcz.png) no-repeat center /
     contain;
 }
 .index_ls_list .wtcl:before {
-  background: url(../assets/index-ls/index-item-icon-wtcz.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-wtcz.png) no-repeat center /
+    contain;
+}
+.index_ls_item2 {
+  background: url(../assets/img/index-item-bg-gzrz.png) no-repeat center /
     contain;
 }
 .index_ls_list .gzrz:before {
-  background: url(../assets/index-ls/index-item-icon-gzrz.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-gzrz.png) no-repeat center /
+    contain;
+}
+.index_ls_item3{
+  background: url(../assets/img/index-item-bg-tzgg.png) no-repeat center /
+    contain;
+}
+.index_ls_item4{
+  background: url(../assets/img/index-item-bg-tzgg.png) no-repeat center /
+    contain;
+}
+.index_ls_item5{
+  background: url(../assets/img/index-item-bg-tzgg.png) no-repeat center /
+    contain;
+}
+.index_ls_item6{
+  background: url(../assets/img/index-item-bg-tzgg.png) no-repeat center /
     contain;
 }
 .index_ls_list .tzgg:before {
-  background: url(../assets/index-ls/index-item-icon-tzgg.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-tzgg.png) no-repeat center /
     contain;
 }
 .index_ls_list .xxbs:before {
-  background: url(../assets/index-ls/index-item-icon-xxbs.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-xxbs.png) no-repeat center /
     contain;
 }
 .index_ls_list .zhzx:before {
-  background: url(../assets/index-ls/index-item-icon-zhzx.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-zhzx.png) no-repeat center /
     contain;
 }
 .index_ls_list .tjfx:before {
-  background: url(../assets/index-ls/index-item-icon-tjfx.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-tjfx.png) no-repeat center /
     contain;
 }
 .index_ls_list .xtgl:before {
-  background: url(../assets/index-ls/index-item-icon-xtgl.png) no-repeat center /
+  background: url(../assets/img/index-item-icon-xtgl.png) no-repeat center /
     contain;
 }
 .index_ls_list li:before {
