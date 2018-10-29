@@ -29,8 +29,10 @@ const mutations = {
   },
   SET_USER(state, payload) {
     debugger
-    state.currentAuthority = payload.currentAuthority
-    state.status = payload.status
+   /*  state.currentAuthority = payload.currentAuthority
+    state.status = payload.status */
+    state=Object.assign(state,payload.info);
+    sessionStorage.setItem('accountInfo',JSON.stringify(state));
   },
    SET_ROLES: (state, roles) => {
      state.roles = roles
@@ -46,8 +48,7 @@ const actions = {
           const info = res.data
           commit({
             type: 'SET_USER',
-            currentAuthority: info.currentAuthority,
-            status: info.status,
+          info,
           })
           commit('SET_TOKEN', info.token)
           setToken(info.token)

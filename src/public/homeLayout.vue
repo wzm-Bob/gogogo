@@ -6,17 +6,12 @@
       <div slot="nav" class="jzfp-navi">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">气吞山河</div>
-            <div class="swiper-slide">风起云涌</div>
-            <div class="swiper-slide">大气磅礴</div>
-            <div class="swiper-slide">盗亦有道</div>
-            <div class="swiper-slide">傲视群雄</div>
-            <div class="swiper-slide">君临天下</div>
-            <div class="swiper-slide">开天辟地</div>
-            <div class="swiper-slide">气贯长虹</div>
+            <div class="swiper-slide" v-for="(item,index) in menuData">
+              <router-link :to="item.path">{{item.name}}</router-link>
+            </div>
           </div>
           <!-- Add Pagination -->
-         <!--  <div class="swiper-pagination"></div> -->
+          <!--  <div class="swiper-pagination"></div> -->
           <!-- Add Arrows -->
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
@@ -45,7 +40,50 @@ export default {
     PublicMenu
   },
   data() {
-    return {};
+    return {
+      menuData:[
+        {
+          name:'氣吞山河',
+          path:'/dashboard/workplace',
+          open:true
+        },
+         {
+          name:'冠世無雙',
+          path:'',
+          open:false
+        },
+         {
+          name:'走馬觀花',
+          path:'/dashboard/workplace',
+          open:false
+        },
+         {
+          name:'龍吟九霄',
+          path:'/dashboard/workplace',
+          open:false
+        },
+         {
+          name:'策馬揚鞭',
+          path:'/dashboard/workplace',
+          open:false
+        },
+         {
+          name:'霸絕天下',
+          path:'/dashboard/workplace',
+          open:false
+        },
+         {
+          name:'捨我其誰',
+          path:'',
+          open:false
+        },
+         {
+          name:'君臨天下',
+          path:'',
+          open:false
+        },
+      ]
+    };
   },
   computed: {
     users: function() {
@@ -67,13 +105,25 @@ export default {
           prevEl: ".swiper-button-prev"
         }
       });
+    },
+    gotoPage(item, subMenu) {
+      for (var key in subMenu) {
+        subMenu[key].open = false;
+      }
+      item.open = true;
+      this.refreshPage(this.$router.history.current.path, item.path);
+    },
+    refreshPage(oldPath, curPath) {
+      if (oldPath == curPath) {
+        this.$emit("onRefresh", curPath);
+      } else {
+        this.$router.push({ path: curPath, replace: true });
+      }
     }
   },
-  created() {
-   
-  },
+  created() {},
   mounted() {
-     this._init_swiper();
+    this._init_swiper();
   }
 };
 </script>
@@ -87,7 +137,7 @@ export default {
   text-align: center;
   font-size: 18px;
   color: #fff;
- /*  background: #ef553d; */
+  /*  background: #ef553d; */
 
   /* Center slide text vertically */
   display: -webkit-box;
