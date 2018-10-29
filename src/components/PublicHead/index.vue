@@ -1,70 +1,44 @@
 <template>
     <div class="pub-header">
-        <!-- <h3></h3>
-        <slot name='entry'></slot>
-        <slot name='common'></slot> -->
-        <div class="base-title">社会大学研发管理系统</div>
-        <!-- <div class="base-link-wrap">
-            <Dropdown placement="bottom-start">
-                <a href="javascript:void(0)">
-                    菜单(左)
-                    <Icon type="ios-arrow-down"></Icon>
-                </a>
-                <DropdownMenu slot="list">
-                    <DropdownItem>驴打滚</DropdownItem>
-                    <DropdownItem>炸酱面</DropdownItem>
-                    <DropdownItem>豆汁儿</DropdownItem>
-                    <DropdownItem>冰糖葫芦</DropdownItem>
-                    <DropdownItem>北京烤鸭</DropdownItem>
-                </DropdownMenu>
-            </Dropdown>
-        </div> -->
-        <div class="user-center">个人中心</div>
-        <div class="jzfp-navi">
-            <Carousel v-model="value3" :autoplay="setting.autoplay" :autoplay-speed="setting.autoplaySpeed" :dots="setting.dots" :radius-dot="setting.radiusDot" :trigger="setting.trigger" :arrow="setting.arrow">
-                <CarouselItem>
-                    <div class="demo-carousel">菜单一</div>
-                </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">菜单二</div>
-                </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">菜单3</div>
-                </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">菜单一4</div>
-                </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">菜单一5</div>
-                </CarouselItem>
-                <CarouselItem>
-                    <div class="demo-carousel">菜单一6</div>
-                </CarouselItem>
-            </Carousel>
-        </div>
+        <!-- 假如父组件有slot  会替代渲染子组件对应的slot 若么有 子组件中的slot会渲染 -->
 
+        <div class="base-title">某某综合管理系统</div>
+        <Dropdown  placement="bottom-start">
+            <slot name='return'></slot>
+            <a href="javascript:void(0)">
+                <Icon type="ios-contact" size="26" />
+                {{users.currentAuthority}}
+                <Icon type="ios-arrow-down"></Icon>
+            </a>
+            <DropdownMenu slot="list">
+                <DropdownItem>
+                    <Icon type="ios-person-add" />&nbsp;个人中心</DropdownItem>
+                <DropdownItem>
+                    <Icon type="ios-planet" />&nbsp;修改密码</DropdownItem>
+                <DropdownItem>
+                    <Icon type="ios-recording" />&nbsp;后台完善</DropdownItem>
+            </DropdownMenu>
+        </Dropdown>
+         <slot name='nav'></slot>
     </div>
 </template>
 <script>
 export default {
+  props: {
+    users: {
+      type: Object,
+      required: true
+    }
+  },
   data() {
     return {
-        value3:0,
-      setting: {
-        autoplay: false,
-        autoplaySpeed: 2000,
-        dots: "none",
-        radiusDot: false,
-        trigger: "click",
-        arrow: "always"
-      }
+     
     };
   }
 };
 </script>
 <style>
 .pub-header {
-  position: relative;
   width: 100%;
   height: 90px;
   line-height: 90px;
@@ -72,12 +46,14 @@ export default {
   padding: 0 20px;
   max-height: 110px;
   overflow: hidden;
-  background: url(../../assets/index-ls/header-bg.png) no-repeat center / cover;
+  background: url(../../assets/img/header-bg.png) no-repeat center / cover;
 }
-.ivu-carousel-arrow>* {
-    vertical-align: baseline;
-    top: -21px;
-    position: relative;
+.ivu-dropdown-rel a {
+  color: #fff;
+  font-size: 16px;
+}
+.ivu-dropdown-rel a:hover {
+  color: #fff;
 }
 .base-title {
   display: inline-block;
@@ -87,8 +63,8 @@ export default {
   float: left;
   /*  background: url(img/index-ls/headder-base-title.png) no-repeat center / cover; */
 }
-.user-center {
-  width: 180px;
+.ivu-dropdown {
+  width: 135px;
   float: right;
 }
 .base-link-wrap {
@@ -99,15 +75,10 @@ export default {
   color: #fff;
   text-align: center;
 }
-.ivu-carousel-list{
-    margin: 0 40px;
-}
-.ivu-carousel-item{
-    width:120px!important;
-}
+
 .jzfp-navi {
   float: right;
-  width:600px;
+  width: 600px;
 }
 </style>
 

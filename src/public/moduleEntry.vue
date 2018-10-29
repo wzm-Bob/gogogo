@@ -1,23 +1,7 @@
 <template>
   <div class='layout'>
-    <public-head>
-        <a class="base-home" slot="entry" href="/lsz/index.jsp">返回首页</a>
-     <!--  <div slot="entry">
-        <Dropdown placement="bottom-start">
-          <a href="javascript:void(0)">
-            个人中心
-            <Icon type="ios-arrow-down"></Icon>
-          </a>
-          <DropdownMenu slot="list">
-            <DropdownItem>驴打滚</DropdownItem>
-            <DropdownItem>炸酱面</DropdownItem>
-            <DropdownItem>豆汁儿</DropdownItem>
-            <DropdownItem>冰糖葫芦</DropdownItem>
-            <DropdownItem>北京烤鸭</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
-      </div> -->
-
+    <public-head :users="users">
+        
     </public-head>
     <div class="public-wrap">
       <div class="index_ls_list_wrap">
@@ -82,7 +66,11 @@ export default {
       ]
     };
   },
-  computed: {},
+  computed: {
+    users: function(){
+        return this.$store.state.user
+    }
+  },
   methods: {
     setClass(index,cls) {
             //let obj = {face: true}
@@ -105,14 +93,7 @@ export default {
 .layout {
   background: url(../assets/img/index-bg.jpg) no-repeat center / cover;
 }
-.layout {
-  width: 100%;
-  height: 100%;
-}
-.public-wrap {
-  position: relative;
-  height: calc(100% - 90px);
-}
+
 .public-menu {
   width: 240px;
   height: auto;
