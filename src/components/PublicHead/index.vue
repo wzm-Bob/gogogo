@@ -77,8 +77,10 @@ export default {
 }
 
 .jzfp-navi {
+  position: relative;
   float: right;
   width: 600px;
+  margin-right: 30px;
 }
 </style>
 

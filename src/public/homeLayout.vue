@@ -13,9 +13,10 @@
           <!-- Add Pagination -->
           <!--  <div class="swiper-pagination"></div> -->
           <!-- Add Arrows -->
+        
+        </div>
           <div class="swiper-button-next">&gt;</div>
           <div class="swiper-button-prev">&lt;</div>
-        </div>
 
       </div>
     </public-head>
@@ -93,7 +94,7 @@ export default {
   methods: {
     _init_swiper() {
       let swiper = new Swiper(".swiper-container", {
-        slidesPerView: 4,
+        slidesPerView: 5,
         centeredSlides: false,
         spaceBetween: 5,
         // pagination: {
@@ -205,5 +206,13 @@ export default {
 }
 .public-content {
   overflow: hidden;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+  right: -25px;
+  outline: none;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+  left:-25px;
+  outline: none;
 }
 </style>
