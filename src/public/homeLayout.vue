@@ -6,10 +6,8 @@
       <div slot="nav" class="jzfp-navi">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" :class="{active:item.open}" 
-            :key="index" v-for="(item,index) in menuData"
-             @click="gotoPage(item,menuData)">
-             {{item.name}}
+            <div class="swiper-slide" :class="{active:item.open}" :key="index" v-for="(item,index) in menuData" @click="gotoPage(item,menuData)">
+              {{item.name}}
             </div>
           </div>
           <!-- Add Pagination -->
@@ -114,7 +112,7 @@ export default {
         Menu[key].open = false;
       }
       item.open = true;
-      debugger
+      debugger;
       this.refreshPage(this.$router.history.current.path, item.path);
     },
     refreshPage(oldPath, curPath) {
@@ -137,7 +135,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.swiper-slide.active{
+.swiper-slide.active {
   background: rgb(209, 4, 4);
 }
 .swiper-button-next,

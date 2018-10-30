@@ -8,4 +8,8 @@ export default {
     name:'monitor'
 }
 </script>
+<style>
+
+</style>
+
 
