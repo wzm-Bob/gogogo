@@ -1,11 +1,11 @@
 <template>
     <div>
-        核心层
+        分析页面
     </div>
 </template>
 <script>
 export default {
-    name: 'HomeLayout',
+    name: 'analysis',
     data() {
         return {
 

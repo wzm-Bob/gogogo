@@ -6,15 +6,17 @@
       <div slot="nav" class="jzfp-navi">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item,index) in menuData">
-              <router-link :to="item.path">{{item.name}}</router-link>
+            <div class="swiper-slide" :class="{active:item.open}" 
+            :key="index" v-for="(item,index) in menuData"
+             @click="gotoPage(item,menuData)">
+             {{item.name}}
             </div>
           </div>
           <!-- Add Pagination -->
           <!--  <div class="swiper-pagination"></div> -->
           <!-- Add Arrows -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next">&gt;</div>
+          <div class="swiper-button-prev">&lt;</div>
         </div>
 
       </div>
@@ -41,47 +43,47 @@ export default {
   },
   data() {
     return {
-      menuData:[
+      menuData: [
         {
-          name:'氣吞山河',
-          path:'/dashboard/workplace',
-          open:true
+          name: "氣吞山河",
+          path: "/dashboard/workplace",
+          open: true
         },
-         {
-          name:'冠世無雙',
-          path:'',
-          open:false
+        {
+          name: "冠世無雙",
+          path: "/dashboard/monitor",
+          open: false
         },
-         {
-          name:'走馬觀花',
-          path:'/dashboard/workplace',
-          open:false
+        {
+          name: "走馬觀花",
+          path: "/dashboard/workplace",
+          open: false
         },
-         {
-          name:'龍吟九霄',
-          path:'/dashboard/workplace',
-          open:false
+        {
+          name: "龍吟九霄",
+          path: "/dashboard/monitor",
+          open: false
         },
-         {
-          name:'策馬揚鞭',
-          path:'/dashboard/workplace',
-          open:false
+        {
+          name: "策馬揚鞭",
+          path: "/dashboard/workplace",
+          open: false
         },
-         {
-          name:'霸絕天下',
-          path:'/dashboard/workplace',
-          open:false
+        {
+          name: "霸絕天下",
+          path: "/dashboard/monitor",
+          open: false
         },
-         {
-          name:'捨我其誰',
-          path:'',
-          open:false
+        {
+          name: "捨我其誰",
+          path: "/dashboard/monitor",
+          open: false
         },
-         {
-          name:'君臨天下',
-          path:'',
-          open:false
-        },
+        {
+          name: "君臨天下",
+          path: "/dashboard/workplace",
+          open: false
+        }
       ]
     };
   },
@@ -106,11 +108,13 @@ export default {
         }
       });
     },
-    gotoPage(item, subMenu) {
-      for (var key in subMenu) {
-        subMenu[key].open = false;
+    gotoPage(item, Menu) {
+      for (var key in Menu) {
+        //所有的置为false  然后当前item打开
+        Menu[key].open = false;
       }
       item.open = true;
+      debugger
       this.refreshPage(this.$router.history.current.path, item.path);
     },
     refreshPage(oldPath, curPath) {
@@ -133,10 +137,26 @@ export default {
   width: 100%;
   height: 100%;
 }
+.swiper-slide.active{
+  background: rgb(209, 4, 4);
+}
+.swiper-button-next,
+.swiper-button-prev {
+  background-image: none;
+  font-size: 32px;
+  color: #fff;
+  font-weight: 800;
+  top: 25%;
+}
+.swiper-slide a,
+.swiper-slide a:hover {
+  color: #fff;
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;
   color: #fff;
+  cursor: pointer;
   /*  background: #ef553d; */
 
   /* Center slide text vertically */

@@ -28,37 +28,37 @@ export default {
     return {
       moduleData: [
         {
-          url: "/dashboard/analysis",
+          url: "/dashboard",
           name: "纵马江湖",
           icon: "index-item-bg-jcxx",
           difcls:"jcxx"
         },
         {
-          url: "/dashboard/analysis",
+          url: "/list",
           name: "金戈铁马",
           icon: "index-item-bg-tzgg",
           difcls:"wtcl"
         },
         {
-          url: "/dashboard/analysis",
+          url: "/dashboard",
           name: "马踏飞燕",
           icon: "index-item-bg-wtcz",
           difcls:"gzrz"
         },
         {
-          url: "/dashboard/analysis",
+          url: "/list",
           name: "大漠穷秋",
           icon: "index-item-bg-xxbs",
           difcls:"tzgg"
         },
         {
-          url: "/dashboard/analysis",
+          url: "/dashboard",
           name: "图穷匕见",
           icon: "index-item-bg-gzrz",
           difcls:"xxbs"
         },
         {
-          url: "/dashboard/analysis",
+          url: "/list",
           name: "大罗金仙",
           icon: "index-item-bg-zhzx",
           difcls:"xtgl"
