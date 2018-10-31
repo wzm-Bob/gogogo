@@ -13,14 +13,28 @@
           <!-- Add Pagination -->
           <!--  <div class="swiper-pagination"></div> -->
           <!-- Add Arrows -->
-        
+
         </div>
-          <div class="swiper-button-next">&gt;</div>
-          <div class="swiper-button-prev">&lt;</div>
+        <div class="swiper-button-next">&gt;</div>
+        <div class="swiper-button-prev">&lt;</div>
 
       </div>
     </public-head>
     <div class="public-wrap">
+      <div class="bread-area">
+        <Breadcrumb>
+          <BreadcrumbItem to="/">
+            <Icon type="ios-home-outline"></Icon>首页
+          </BreadcrumbItem>
+          <BreadcrumbItem to="/components/breadcrumb">
+            <Icon type="logo-buffer"></Icon> 金戈铁马
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <Icon type="ios-cafe"></Icon> 冲锋陷阵
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+
       <div class="public-menu">
         <public-menu></public-menu>
       </div>
@@ -118,7 +132,10 @@ export default {
     },
     refreshPage(oldPath, curPath) {
       if (oldPath == curPath) {
-        this.$emit("onRefresh", curPath);
+        // this.$emit("onRefresh", curPath);
+        this.$nextTick(() => {
+          this.$router.push({ path: curPath, replace: true });
+        });
       } else {
         this.$router.push({ path: curPath, replace: true });
       }
@@ -150,6 +167,13 @@ export default {
 .swiper-slide a,
 .swiper-slide a:hover {
   color: #fff;
+}
+.bread-area {
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  margin-left: 30px;
+  overflow: hidden;
 }
 .swiper-slide {
   text-align: center;
@@ -203,16 +227,20 @@ export default {
   width: 240px;
   height: auto;
   float: left;
+  position: relative;
+  margin-right: 15px;
 }
 .public-content {
   overflow: hidden;
 }
-.swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
   right: -25px;
   outline: none;
 }
-.swiper-button-prev, .swiper-container-rtl .swiper-button-next{
-  left:-25px;
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+  left: -25px;
   outline: none;
 }
 </style>
