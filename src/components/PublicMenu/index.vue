@@ -149,7 +149,9 @@ export default {
     },
     zTreeOnClick: function(event, treeId, treeNode) {
       debugger
-    
+//       <sidebar></sidebar>
+// <router-view></router-view>
+       this.$route.router.go()
     },
     zTreeOnCheck: function(event, treeId, treeNode) {
     
