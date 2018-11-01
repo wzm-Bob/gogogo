@@ -24,7 +24,7 @@ service.interceptors.response.use(
     response => response,
     error => {
         console.log('err' + error) // for debug
-        this.$Message.error( error.message)
+        alert( error.message)
         return Promise.reject(error)
     }
 )

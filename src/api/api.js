@@ -17,7 +17,12 @@ export function logout() {
         method: 'post'
     })
 }
-
+export function getTreeData() {
+    return request({
+        url: '/api/tree',
+        method: 'get'
+    })
+}
 export function getUserInfo(token) {
     return request({
         url: '/user/info',
