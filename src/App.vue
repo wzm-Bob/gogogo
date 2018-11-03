@@ -15,6 +15,7 @@ export default {
     window.addEventListener("beforeunload",()=>{
 
         sessionStorage.setItem("accountInfo",JSON.stringify(this.$store.state))
+        
          // this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(sessionStorage.getItem("accountInfo"))))
     })
   }  

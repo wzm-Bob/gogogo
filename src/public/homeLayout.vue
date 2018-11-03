@@ -53,12 +53,12 @@ export default {
         },
         {
           name: "龍吟九霄",
-          path: "/dashboard/analysis",
+          path: "/list/excel",
           open: false
         },
         {
           name: "策馬揚鞭",
-          path: "/dashboard/workplace",
+          path: "/list/table",
           open: false
         },
         {
@@ -84,6 +84,15 @@ export default {
       return this.$store.state.user;
     }
   },
+  watch:{
+   '$route'(to,from){
+       debugger
+       if(to=''){
+
+       }
+      }
+    
+  },
   methods: {
     _init_swiper() {
       let swiper = new Swiper(".swiper-container", {
@@ -101,6 +110,7 @@ export default {
       });
     },
     gotoPage(item, Menu) {
+      debugger
       for (var key in Menu) {
         //所有的置为false  然后当前item打开
         Menu[key].open = false;
@@ -110,6 +120,7 @@ export default {
       this.refreshPage(this.$router.history.current.path, item.path);
     },
     refreshPage(oldPath, curPath) {
+      debugger
       if (oldPath == curPath) {
         // this.$emit("onRefresh", curPath);
         this.$nextTick(() => {
@@ -123,6 +134,7 @@ export default {
   created() {},
   mounted() {
     this._init_swiper();
+    this.gotoPage(this.menuData[0],this.menuData);
   }
 };
 </script>

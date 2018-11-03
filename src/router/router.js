@@ -43,7 +43,7 @@ export const commonRouter = [{
     path: "/dashboard",
     name: "HomeLayout",
     component: HomeLayout,
-    redirect: '/dashboard/workplace',
+    redirect: '/dashboard/analysis',
     children: [{
         path: "/dashboard/analysis",
         name: "analysis",
