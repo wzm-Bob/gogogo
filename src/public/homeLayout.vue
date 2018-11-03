@@ -59,7 +59,7 @@ export default {
       menuData: [
         {
           name: "氣吞山河",
-          path: "/dashboard/workplace",
+          path: "/dashboard/analysis",
           open: true
         },
         {
@@ -74,7 +74,7 @@ export default {
         },
         {
           name: "龍吟九霄",
-          path: "/dashboard/monitor",
+          path: "/dashboard/analysis",
           open: false
         },
         {
@@ -232,6 +232,7 @@ export default {
 }
 .public-content {
   overflow: hidden;
+  padding-right: 20px;
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {

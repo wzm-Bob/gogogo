@@ -65,7 +65,7 @@ export default {
   margin-bottom: 2px;
   border-radius: 4px;
   overflow: auto;
-  background: url(../../assets/img/header-bg.png) no-repeat center;
+  height: 500px;
 }
 .box-title {
   border-radius: 3px 3px 0 0;
