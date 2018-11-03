@@ -21,38 +21,17 @@
       </div>
     </public-head>
     <div class="public-wrap">
-      <div class="bread-area">
-        <Breadcrumb>
-          <BreadcrumbItem to="/">
-            <Icon type="ios-home-outline"></Icon>首页
-          </BreadcrumbItem>
-          <BreadcrumbItem to="/components/breadcrumb">
-            <Icon type="logo-buffer"></Icon> 金戈铁马
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <Icon type="ios-cafe"></Icon> 冲锋陷阵
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </div>
-
-      <div class="public-menu">
-        <public-menu></public-menu>
-      </div>
-      <div class="public-content">
-        <router-view />
-      </div>
+      <router-view />
     </div>
   </div>
 </template>
 <script>
 import Swiper from "swiper";
 import PublicHead from "../components/PublicHead";
-import PublicMenu from "../components/PublicMenu";
 export default {
   name: "HomeLayout",
   components: {
-    PublicHead,
-    PublicMenu
+    PublicHead
   },
   data() {
     return {
@@ -168,13 +147,7 @@ export default {
 .swiper-slide a:hover {
   color: #fff;
 }
-.bread-area {
-  height: 40px;
-  line-height: 40px;
-  text-align: left;
-  margin-left: 30px;
-  overflow: hidden;
-}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -222,17 +195,6 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-}
-.public-menu {
-  width: 240px;
-  height: auto;
-  float: left;
-  position: relative;
-  margin-right: 15px;
-}
-.public-content {
-  overflow: hidden;
-  padding-right: 20px;
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {

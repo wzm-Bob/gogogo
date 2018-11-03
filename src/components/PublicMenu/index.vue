@@ -83,4 +83,22 @@ export default {
   float: right;
   line-height: 20px;
 }
+.bread-area {
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  margin-left: 30px;
+  overflow: hidden;
+}
+.public-menu {
+  width: 240px;
+  height: auto;
+  float: left;
+  position: relative;
+  margin-right: 15px;
+}
+.public-content {
+  overflow: hidden;
+  padding-right: 20px;
+}
 </style>
