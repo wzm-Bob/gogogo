@@ -6,8 +6,12 @@
     <div class="public-wrap">
       <div class="index_ls_list_wrap">
         <ul class="index_ls_list" id="index_menu">
-          <li  v-for="(item,index) in moduleData" :key="index" :class="setClass(index,item.difcls)" :style="setStyle(item.icon)">
-            <router-link :to="item.url">
+          <li  v-for="(item,index) in moduleData" 
+          :key="index" :class="setClass(index,item.difcls)" 
+          :style="setStyle(item.icon)"
+          @click="gotoPage(item,moduleData)">
+            <router-link :to="item.path">
+              <!--  <router-link:to="{path:`${item.path}`,query:{id:item.id}} -->
               <div class="item-name">{{item.name}}</div>
             </router-link>
           </li>
@@ -19,6 +23,7 @@
 </template>
 <script>
 import PublicHead from "../components/PublicHead";
+import { getMenu } from "../api/api.js";
 export default {
   name: "ModuleEntry",
   components: {
@@ -26,44 +31,7 @@ export default {
   },
   data() {
     return {
-      moduleData: [
-        {
-          url: "/dashboard",
-          name: "纵马江湖",
-          icon: "index-item-bg-jcxx",
-          difcls:"jcxx"
-        },
-        {
-          url: "/list",
-          name: "金戈铁马",
-          icon: "index-item-bg-tzgg",
-          difcls:"wtcl"
-        },
-        {
-          url: "/dashboard",
-          name: "马踏飞燕",
-          icon: "index-item-bg-wtcz",
-          difcls:"gzrz"
-        },
-        {
-          url: "/list",
-          name: "大漠穷秋",
-          icon: "index-item-bg-xxbs",
-          difcls:"tzgg"
-        },
-        {
-          url: "/dashboard",
-          name: "图穷匕见",
-          icon: "index-item-bg-gzrz",
-          difcls:"xxbs"
-        },
-        {
-          url: "/list",
-          name: "大罗金仙",
-          icon: "index-item-bg-zhzx",
-          difcls:"xtgl"
-        }
-      ]
+      moduleData: []
     };
   },
   computed: {
@@ -85,7 +53,13 @@ export default {
       // return obj
     }
   },
-  created() {},
+  created() {
+    let _this=this
+    getMenu().then(function(res){
+      debugger
+      _this.moduleData=res.data
+    })
+  },
   mounted() {}
 };
 </script>
@@ -170,6 +144,10 @@ export default {
     contain;
 }
 .index_ls_item6{
+  background: url(../assets/img/index-item-bg-tzgg.png) no-repeat center /
+    contain;
+}
+.index_ls_item7{
   background: url(../assets/img/index-item-bg-tzgg.png) no-repeat center /
     contain;
 }

@@ -14,7 +14,7 @@
             </Breadcrumb>
         </div>
         <div class="public-menu">
-            <Menu :theme="theme3" active-name="1">
+            <Menu  active-name="1">
                 <MenuGroup title="内容管理">
                     <MenuItem name="1">
                     <Icon type="md-document" />

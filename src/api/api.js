@@ -17,6 +17,15 @@ export function logout() {
         method: 'post'
     })
 }
+export function getMenu(id) {
+    return request({
+        url: '/api/menu',
+        method: 'get',
+        // params: {
+        //     id
+        // }
+    })
+}
 export function getTreeData() {
     return request({
         url: '/api/tree',
