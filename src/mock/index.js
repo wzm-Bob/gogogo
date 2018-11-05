@@ -1,5 +1,5 @@
  import Mock from 'mockjs';
-import {treeData,menuData} from './list'
+import {treeData,menuData,currmenuData} from './list'
  const login = Mock.mock(
      '/login/login', 'post', (req, res) => {
          const {
@@ -85,5 +85,6 @@ import {treeData,menuData} from './list'
      user,
      login,
      treeData,
-     menuData
+     menuData,
+     currmenuData
  }

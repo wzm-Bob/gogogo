@@ -10,8 +10,8 @@
           :key="index" :class="setClass(index,item.difcls)" 
           :style="setStyle(item.icon)"
           @click="gotoPage(item,moduleData)">
-            <router-link :to="item.path">
-              <!--  <router-link:to="{path:`${item.path}`,query:{id:item.id}} -->
+           <!--  <router-link :to="item.path"> -->
+            <router-link :to="{path:`${item.path}`,query:{id:item.id}}">
               <div class="item-name">{{item.name}}</div>
             </router-link>
           </li>
@@ -48,14 +48,12 @@ export default {
             return obj
         },
     setStyle(sty) {
-      // let obj ={'background':'none'}
-      // obj[background] = `url(../assets/img/${sty}.png)`
-      // return obj
+     
     }
   },
   created() {
     let _this=this
-    getMenu().then(function(res){
+    getMenu(0).then(function(res){
       debugger
       _this.moduleData=res.data
     })

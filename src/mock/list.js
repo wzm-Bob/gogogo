@@ -1,10 +1,7 @@
 import Mock from 'mockjs'
+import { param2Obj } from "../utils";
 export const treeData = Mock.mock('/api/tree', 'get', (req, res) => {
-  debugger
-  /*  const {
-       id
-   } = JSON.parse(req.body); */
-  // if (id < 10) {
+  /*  没有携带参数的不必正则匹配 */
   return [{
     id: 1,
     pid: 0,
@@ -169,8 +166,10 @@ export const treeData = Mock.mock('/api/tree', 'get', (req, res) => {
 
   //}
 })
-export const menuData = Mock.mock('/api/menu', 'get', (req, res) => {
-  return [{
+export const menuData = Mock.mock(/\/api\/menu/, 'get', (config) => {
+  /* 路径用正则匹配 千万别用引号哦 */
+  const list= [
+    {
       name: "氣吞山河",
       path: "/dashboard/analysis",
       icon: "index-item-bg-jcxx",
@@ -235,4 +234,97 @@ export const menuData = Mock.mock('/api/menu', 'get', (req, res) => {
       open: false
     }
   ]
+  const { id } = param2Obj(config.url)
+  const ID= parseInt(id)
+ for(let item of list){
+  
+   if(ID!==0){
+    if(item.id===ID){
+      return item
+    }
+   }else{
+    return list
+   }
+ }
+
+})
+export const currmenuData = Mock.mock(/\/api\/currmenu/, 'get', (config) => {
+  /* 路径用正则匹配 千万别用引号哦 */
+  const list= [
+    {
+      name: "氣吞山河",
+      path: "/dashboard/analysis",
+      icon: "index-item-bg-jcxx",
+      difcls: "jcxx",
+      id: 1,
+      open: false
+    },
+    {
+      name: "冠世無雙",
+      path: "/dashboard/monitor",
+      icon: "index-item-bg-tzgg",
+      difcls: "wtcl",
+      id: 2,
+      open: false
+    },
+    {
+      name: "走馬觀花",
+      path: "/dashboard/workplace",
+      icon: "index-item-bg-wtcz",
+      difcls: "gzrz",
+      id: 3,
+      open: false
+    },
+    {
+      name: "龍吟九霄",
+      path: "/list/excel",
+      icon: "index-item-bg-xxbs",
+      difcls: "tzgg",
+      id: 4,
+      open: false
+    },
+    {
+      name: "策馬揚鞭",
+      path: "/list/table",
+      icon: "index-item-bg-gzrz",
+      difcls: "xxbs",
+      id: 5,
+      open: false
+    },
+    {
+      name: "霸絕天下",
+      path: "/dashboard/monitor",
+      icon: "index-item-bg-zhzx",
+      difcls: "xtgl",
+      id: 6,
+      open: false
+    },
+    {
+      name: "捨我其誰",
+      path: "/dashboard/monitor",
+      icon: "index-item-bg-gzrz",
+      difcls: "xxbs",
+      id: 7,
+      open: false
+    },
+    {
+      name: "君臨天下",
+      path: "/dashboard/workplace",
+      icon: "index-item-bg-tzgg",
+      difcls: "wtcl",
+      id: 8,
+      open: false
+    }
+  ]
+  const { id } = param2Obj(config.url)
+  const ID= parseInt(id)
+ for(let item of list){ 
+ 
+    if(item.id===ID){
+      item.open=true
+      return list
+    }
+   
+ }
+
 })

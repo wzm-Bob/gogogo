@@ -6,7 +6,7 @@
       <div slot="nav" class="jzfp-navi">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item,index) in menuData" :class="{active:item.open}" :key="index" @click="gotoPage(item,menuData)">
+            <div class="swiper-slide" v-for="(item,index) in menuData" :class="{active:item.open}" :key="index" @click="gotoPage(item)">
               {{item.name}}
             </div>
           </div>
@@ -28,7 +28,7 @@
 <script>
 import Swiper from "swiper";
 import PublicHead from "../components/PublicHead";
-import { getMenu } from "../api/api.js";
+import { getCurrMenu } from "../api/api.js";
 export default {
   name: "HomeLayout",
   components: {
@@ -36,86 +36,85 @@ export default {
   },
   data() {
     return {
-      menuData:[{
-      name: "氣吞山河",
-      path: "/dashboard/analysis",
-      icon: "index-item-bg-jcxx",
-      difcls: "jcxx",
-      id: 1,
-      open: true
-    },
-    {
-      name: "冠世無雙",
-      path: "/dashboard/monitor",
-      icon: "index-item-bg-tzgg",
-      difcls: "wtcl",
-      id: 2,
-      open: false
-    },
-    {
-      name: "走馬觀花",
-      path: "/dashboard/workplace",
-      icon: "index-item-bg-wtcz",
-      difcls: "gzrz",
-      id: 3,
-      open: false
-    },
-    {
-      name: "龍吟九霄",
-      path: "/list/excel",
-      icon: "index-item-bg-xxbs",
-      difcls: "tzgg",
-      id: 4,
-      open: false
-    },
-    {
-      name: "策馬揚鞭",
-      path: "/list/table",
-      icon: "index-item-bg-gzrz",
-      difcls: "xxbs",
-      id: 5,
-      open: false
-    },
-    {
-      name: "霸絕天下",
-      path: "/dashboard/monitor",
-      icon: "index-item-bg-zhzx",
-      difcls: "xtgl",
-      id: 6,
-      open: false
-    },
-    {
-      name: "捨我其誰",
-      path: "/dashboard/monitor",
-      icon: "index-item-bg-gzrz",
-      difcls: "xxbs",
-      id: 7,
-      open: false
-    },
-    {
-      name: "君臨天下",
-      path: "/dashboard/workplace",
-      icon: "index-item-bg-tzgg",
-      difcls: "wtcl",
-      id: 8,
-      open: false
-    }
-  ]
-    }
+      menuData: [
+        {
+          name: "氣吞山河",
+          path: "/dashboard/analysis",
+          icon: "index-item-bg-jcxx",
+          difcls: "jcxx",
+          id: 1,
+          open: false
+        },
+        {
+          name: "冠世無雙",
+          path: "/dashboard/monitor",
+          icon: "index-item-bg-tzgg",
+          difcls: "wtcl",
+          id: 2,
+          open: false
+        },
+        {
+          name: "走馬觀花",
+          path: "/dashboard/workplace",
+          icon: "index-item-bg-wtcz",
+          difcls: "gzrz",
+          id: 3,
+          open: false
+        },
+        {
+          name: "龍吟九霄",
+          path: "/list/excel",
+          icon: "index-item-bg-xxbs",
+          difcls: "tzgg",
+          id: 4,
+          open: false
+        },
+        {
+          name: "策馬揚鞭",
+          path: "/list/table",
+          icon: "index-item-bg-gzrz",
+          difcls: "xxbs",
+          id: 5,
+          open: false
+        },
+        {
+          name: "霸絕天下",
+          path: "/dashboard/monitor",
+          icon: "index-item-bg-zhzx",
+          difcls: "xtgl",
+          id: 6,
+          open: false
+        },
+        {
+          name: "捨我其誰",
+          path: "/dashboard/monitor",
+          icon: "index-item-bg-gzrz",
+          difcls: "xxbs",
+          id: 7,
+          open: false
+        },
+        {
+          name: "君臨天下",
+          path: "/dashboard/workplace",
+          icon: "index-item-bg-tzgg",
+          difcls: "wtcl",
+          id: 8,
+          open: false
+        }
+      ]
+    };
   },
   computed: {
     users: function() {
       return this.$store.state.user;
     }
   },
-  watch:{
-   '$route'(to,from){
-       debugger
-       if(to=''){
-
-       }
+  watch: {
+    $route(to, from) {
+      debugger;
+      if ((to = "")) {
       }
-    
+    }
   },
   methods: {
     _init_swiper() {
@@ -133,18 +132,20 @@ export default {
         }
       });
     },
-    gotoPage(item, Menu) {
-      debugger
-      for (var key in Menu) {
+    gotoPage(item) {
+      /*  for (var key in Menu) {
         //所有的置为false  然后当前item打开
         Menu[key].open = false;
       }
-      item.open = true;
-      debugger;
+      item.open = true; */
+      var currid = item.id;
+      var _this = this;
+      getCurrMenu(currid).then(function(res) {
+        _this.menuData = res.data
+      });
       this.refreshPage(this.$router.history.current.path, item.path);
     },
     refreshPage(oldPath, curPath) {
-      debugger
       if (oldPath == curPath) {
         // this.$emit("onRefresh", curPath);
         this.$nextTick(() => {
@@ -156,19 +157,18 @@ export default {
     }
   },
   created() {
-    var _this=this
-     getMenu().then(function(res){
-      debugger
-      _this.menuData=res.data
-    })
+    debugger;
+    var newsID = this.$route.query.id;
+    var _this = this;
+
+    getCurrMenu(newsID).then(function(res) {
+      debugger;
+      let Menu = res.data;
+      _this.menuData = Menu;
+    });
   },
   mounted() {
     this._init_swiper();
-    //var newsID=this.$route.query.id
-    
-    
-    // this.gotoPage(this.menuData[0],this.menuData);
-   
   }
 };
 </script>
