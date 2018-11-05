@@ -133,27 +133,17 @@ export default {
       });
     },
     gotoPage(item) {
+      debugger
       /*  for (var key in Menu) {
         //所有的置为false  然后当前item打开
         Menu[key].open = false;
       }
       item.open = true; */
-      var currid = item.id;
-      var _this = this;
-      getCurrMenu(currid).then(function(res) {
+       var _this = this;
+       getCurrMenu(item.id).then(function(res) {
         _this.menuData = res.data
       });
-      this.refreshPage(this.$router.history.current.path, item.path);
-    },
-    refreshPage(oldPath, curPath) {
-      if (oldPath == curPath) {
-        // this.$emit("onRefresh", curPath);
-        this.$nextTick(() => {
-          this.$router.push({ path: curPath, replace: true });
-        });
-      } else {
-        this.$router.push({ path: curPath, replace: true });
-      }
+      this.$router.push({ path: item.path, query: {id:item.id} });
     }
   },
   created() {

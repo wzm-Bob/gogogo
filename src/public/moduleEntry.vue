@@ -23,7 +23,7 @@
 </template>
 <script>
 import PublicHead from "../components/PublicHead";
-import { getMenu } from "../api/api.js";
+import { getCurrMenu } from "../api/api.js";
 export default {
   name: "ModuleEntry",
   components: {
@@ -53,7 +53,7 @@ export default {
   },
   created() {
     let _this=this
-    getMenu(0).then(function(res){
+    getCurrMenu().then(function(res){
       debugger
       _this.moduleData=res.data
     })

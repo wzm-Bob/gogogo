@@ -1,5 +1,7 @@
 import Mock from 'mockjs'
-import { param2Obj } from "../utils";
+import {
+  param2Obj
+} from "../utils";
 export const treeData = Mock.mock('/api/tree', 'get', (req, res) => {
   /*  没有携带参数的不必正则匹配 */
   return [{
@@ -168,8 +170,8 @@ export const treeData = Mock.mock('/api/tree', 'get', (req, res) => {
 })
 export const menuData = Mock.mock(/\/api\/menu/, 'get', (config) => {
   /* 路径用正则匹配 千万别用引号哦 */
-  const list= [
-    {
+  debugger
+  const list = [{
       name: "氣吞山河",
       path: "/dashboard/analysis",
       icon: "index-item-bg-jcxx",
@@ -234,24 +236,26 @@ export const menuData = Mock.mock(/\/api\/menu/, 'get', (config) => {
       open: false
     }
   ]
-  const { id } = param2Obj(config.url)
-  const ID= parseInt(id)
- for(let item of list){
-  
-   if(ID!==0){
-    if(item.id===ID){
-      return item
+  const {
+    id
+  } = param2Obj(config.url)
+  const ID = parseInt(id)
+  for (let item of list) {
+
+    if (ID !== 0) {
+      if (item.id === ID) {
+        return item
+      }
+    } else {
+      return list
     }
-   }else{
-    return list
-   }
- }
+  }
 
 })
 export const currmenuData = Mock.mock(/\/api\/currmenu/, 'get', (config) => {
   /* 路径用正则匹配 千万别用引号哦 */
-  const list= [
-    {
+  debugger
+  const list = [{
       name: "氣吞山河",
       path: "/dashboard/analysis",
       icon: "index-item-bg-jcxx",
@@ -316,15 +320,21 @@ export const currmenuData = Mock.mock(/\/api\/currmenu/, 'get', (config) => {
       open: false
     }
   ]
-  const { id } = param2Obj(config.url)
-  const ID= parseInt(id)
- for(let item of list){ 
- 
-    if(item.id===ID){
-      item.open=true
-      return list
-    }
-   
- }
+  const {
+    id
+  } = param2Obj(config.url)
+  if (id === undefined || id === null || id === '') {
+    list[0].open = true
+    return list
+  } else {
+    const ID = parseInt(id)
+    for (let item of list) {
+      item.open = false
+      if (item.id === ID) {
+        item.open = true
+        return list
+      }
 
+    }
+  }
 })
