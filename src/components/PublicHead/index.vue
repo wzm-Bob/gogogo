@@ -1,7 +1,7 @@
 <template>
     <div class="pub-header">
         <!-- 假如父组件有slot  会替代渲染子组件对应的slot 若么有 子组件中的slot会渲染 -->
-        <div class="base-title">.....</div>
+        <div class="base-title">浩瀚中华文化管理局</div>
         <Dropdown  placement="bottom-start">
             <slot name='return'></slot>
             <a href="javascript:void(0)">
@@ -11,11 +11,16 @@
             </a>
             <DropdownMenu slot="list">
                 <DropdownItem>
-                    <Icon type="ios-person-add" />&nbsp;个人中心</DropdownItem>
+                  <router-link to='/userCenter'><Icon type="ios-person-add" />&nbsp;个人中心</router-link>
+                    </DropdownItem>
                 <DropdownItem>
-                    <Icon type="ios-planet" />&nbsp;修改密码</DropdownItem>
+                   <router-link to=''> <Icon type="ios-planet" />&nbsp;修改密码</router-link>
+                   </DropdownItem>
                 <DropdownItem>
-                    <Icon type="ios-recording" />&nbsp;后台完善</DropdownItem>
+                  <a href="">
+                    <Icon type="ios-recording" />&nbsp;退出系统
+                  </a>
+                </DropdownItem>
             </DropdownMenu>
         </Dropdown>
          <slot name='nav'></slot>

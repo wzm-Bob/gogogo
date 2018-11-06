@@ -40,6 +40,12 @@ export const commonRouter = [{
     component: ModuleEntry
   },
   {
+    path: "/userCenter",
+    name: "UserCenter",
+     component: () =>
+       import("../components/UserCenter/index.vue")
+  },
+  {
     path: "/dashboard",
     name: "HomeLayout",
     component: HomeLayout,
