@@ -8,9 +8,7 @@
         <ul class="index_ls_list" id="index_menu">
           <li  v-for="(item,index) in moduleData" 
           :key="index" :class="setClass(index,item.difcls)" 
-          :style="setStyle(item.icon)"
-          @click="gotoPage(item,moduleData)">
-           <!--  <router-link :to="item.path"> -->
+          :style="setStyle(item.icon)">
             <router-link :to="{path:`${item.path}`,query:{id:item.id}}">
               <div class="item-name">{{item.name}}</div>
             </router-link>

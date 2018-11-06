@@ -1,8 +1,11 @@
 <template>
   <div class='layout'>
     <public-head :users="users">
-      <div slot="return" class="return-home"><a href="#">
-          <Icon type="ios-home" size="26" />&nbsp;返回首页</a></div>
+      <div slot="return" class="return-home">
+        <router-link to='/moduleEntry'>
+          <Icon type="ios-home" size="26" />&nbsp;返回首页
+        </router-link>
+        </div>
       <div slot="nav" class="jzfp-navi">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -38,69 +41,69 @@ export default {
     return {
       menuData: [
         {
-          name: "氣吞山河",
-          path: "/dashboard/analysis",
-          icon: "index-item-bg-jcxx",
-          difcls: "jcxx",
-          id: 1,
-          open: false
-        },
-        {
-          name: "冠世無雙",
-          path: "/dashboard/monitor",
-          icon: "index-item-bg-tzgg",
-          difcls: "wtcl",
-          id: 2,
-          open: false
-        },
-        {
-          name: "走馬觀花",
-          path: "/dashboard/workplace",
-          icon: "index-item-bg-wtcz",
-          difcls: "gzrz",
-          id: 3,
-          open: false
-        },
-        {
-          name: "龍吟九霄",
-          path: "/list/excel",
-          icon: "index-item-bg-xxbs",
-          difcls: "tzgg",
-          id: 4,
-          open: false
-        },
-        {
-          name: "策馬揚鞭",
-          path: "/list/table",
-          icon: "index-item-bg-gzrz",
-          difcls: "xxbs",
-          id: 5,
-          open: false
-        },
-        {
-          name: "霸絕天下",
-          path: "/dashboard/monitor",
-          icon: "index-item-bg-zhzx",
-          difcls: "xtgl",
-          id: 6,
-          open: false
-        },
-        {
-          name: "捨我其誰",
-          path: "/dashboard/monitor",
-          icon: "index-item-bg-gzrz",
-          difcls: "xxbs",
-          id: 7,
-          open: false
-        },
-        {
-          name: "君臨天下",
-          path: "/dashboard/workplace",
-          icon: "index-item-bg-tzgg",
-          difcls: "wtcl",
-          id: 8,
-          open: false
-        }
+      name: "氣吞山河",
+      path: "/dashboard/analysis",
+      icon: "index-item-bg-jcxx",
+      difcls: "jcxx",
+      id: 1,
+      open: false
+    },
+    {
+      name: "冠世無雙",
+      path: "/dashboard/monitor",
+      icon: "index-item-bg-tzgg",
+      difcls: "wtcl",
+      id: 2,
+      open: false
+    },
+    {
+      name: "走馬觀花",
+      path: "/dashboard/workplace",
+      icon: "index-item-bg-wtcz",
+      difcls: "gzrz",
+      id: 3,
+      open: false
+    },
+    {
+      name: "龍吟九霄",
+      path: "/list/excel",
+      icon: "index-item-bg-xxbs",
+      difcls: "tzgg",
+      id: 4,
+      open: false
+    },
+    {
+      name: "策馬揚鞭",
+      path: "/list/table",
+      icon: "index-item-bg-gzrz",
+      difcls: "xxbs",
+      id: 5,
+      open: false
+    },
+    {
+      name: "霸絕天下",
+      path: "/dashboard/monitor",
+      icon: "index-item-bg-zhzx",
+      difcls: "xtgl",
+      id: 6,
+      open: false
+    },
+    {
+      name: "捨我其誰",
+      path: "/dashboard/monitor",
+      icon: "index-item-bg-gzrz",
+      difcls: "xxbs",
+      id: 7,
+      open: false
+    },
+    {
+      name: "君臨天下",
+      path: "/dashboard/workplace",
+      icon: "index-item-bg-tzgg",
+      difcls: "wtcl",
+      id: 8,
+      open: false
+    }
       ]
     };
   },
@@ -109,13 +112,13 @@ export default {
       return this.$store.state.user;
     }
   },
-  watch: {
+ /*  watch: {
     $route(to, from) {
       debugger;
       if ((to = "")) {
       }
     }
-  },
+  }, */
   methods: {
     _init_swiper() {
       let swiper = new Swiper(".swiper-container", {
@@ -185,6 +188,7 @@ export default {
 }
 
 .swiper-slide {
+  
   text-align: center;
   font-size: 18px;
   color: #fff;
@@ -231,6 +235,7 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
+  overflow-y: auto;
 }
 .swiper-button-next,
 .swiper-container-rtl .swiper-button-prev {

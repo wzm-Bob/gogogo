@@ -80,7 +80,7 @@
             <Col span='18'>
             <span>其他登录方式</span>
             <span>
-                <a @click="See('https://github.com/wzm-Bob/VUE.git')">
+                <a @click="See('https://github.com/wzm-Bob/gogogo')">
                     <Icon type="ios-alarm-outline" />
                 </a>
                 <!-- 这里跳外站链接不能用router-link  -->
@@ -89,12 +89,12 @@
               </router-link> -->
             </span>
             <span>
-                <a @click="See('https://github.com/wzm-Bob/VUE.git')">
+                <a @click="See('https://github.com/wzm-Bob/gogogo')">
                     <Icon type="logo-android" />
                 </a>
             </span>
             <span>
-                <a @click="See('https://github.com/wzm-Bob/VUE.git')">
+                <a @click="See('https://github.com/wzm-Bob/gogogo')">
                    <Icon type="logo-apple" />
                 </a>
             </span>
