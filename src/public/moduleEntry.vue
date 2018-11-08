@@ -4,6 +4,7 @@
         
     </public-head>
     <div class="public-wrap">
+    <!--   <router-view></router-view> -->
       <div class="index_ls_list_wrap">
         <ul class="index_ls_list" id="index_menu">
           <li  v-for="(item,index) in moduleData" 
@@ -61,9 +62,19 @@ export default {
 </script>
 <style scoped>
 .layout {
+   width: 100%;
+  height: 100%;
+  position: relative;
   background: url(../assets/img/index-bg.jpg) no-repeat center / cover;
 }
-
+.public-wrap {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: auto;
+}
 .public-menu {
   width: 240px;
   height: auto;

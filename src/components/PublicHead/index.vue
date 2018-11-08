@@ -55,6 +55,8 @@ export default {
 .ivu-dropdown-rel a {
   color: #fff;
   font-size: 16px;
+  position: relative;
+  top:0;
 }
 .ivu-dropdown-rel a:hover {
   color: #fff;

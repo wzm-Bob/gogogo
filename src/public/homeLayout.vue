@@ -64,7 +64,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .layout {
   width: 100%;
   height: 100%;
@@ -81,7 +81,6 @@ export default {
   height: 100%;
 }
 .ivu-dropdown-rel a {
-  position: relative;
   top: -15px;
 }
 .public-wrap {

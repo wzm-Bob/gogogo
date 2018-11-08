@@ -1,40 +1,41 @@
 <template>
-     <div  class="jzfp-navi">
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item,index) in navData" :class="{active:item.open}" :key="index" @click="gotoPage(item)">
-              {{item.name}}
-            </div>
-          </div>
-          <!-- Add Pagination -->
-          <!--  <div class="swiper-pagination"></div> -->
-          <!-- Add Arrows -->
-
+  <div class="jzfp-navi">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="(item,index) in navData" :class="{active:item.open}" :key="index" @click="gotoPage(item)">
+          {{item.name}}
         </div>
-        <div class="swiper-button-next">&gt;</div>
-        <div class="swiper-button-prev">&lt;</div>
-
       </div>
+      <!-- Add Pagination -->
+      <!--  <div class="swiper-pagination"></div> -->
+      <!-- Add Arrows -->
+
+    </div>
+    <div class="swiper-button-next">&gt;</div>
+    <div class="swiper-button-prev">&lt;</div>
+
+  </div>
 </template>
 <script>
 import Swiper from "swiper";
 export default {
-    props:{
-        navData:{
-            type:Array,
-            default(){
-                return []
-            }
-        }
-    },
-    data(){
-        return{
-
-        }
-    },
-     methods: {
+  props: {
+    navData: {
+      type: Array,
+      default() {
+        return [];
+      }
+    }
+  },
+  data() {
+    return {};
+  },
+  methods: {
     _init_swiper() {
       let swiper = new Swiper(".swiper-container", {
+        initialSlide: 0,
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true, //修改swiper的父元素时，自动初始化swiper
         slidesPerView: 5,
         centeredSlides: false,
         spaceBetween: 5,
@@ -49,23 +50,20 @@ export default {
       });
     },
     gotoPage(item) {
-        this.$emit('msg-from-child', item)
+      this.$emit("msg-from-child", item);
       /*  for (var key in Menu) {
         //所有的置为false  然后当前item打开
         Menu[key].open = false;
       }
       item.open = true; */
     }
-       
   },
-  mounted(){
-    this._init_swiper()
-    
+  mounted() {
+    setTimeout;
+    this._init_swiper();
   },
-  created(){
-              
-  }
-}
+  created() {}
+};
 </script>
 <style>
 @import "../../../node_modules/swiper/dist/css/swiper.min.css";
@@ -90,7 +88,6 @@ export default {
 }
 
 .swiper-slide {
-  
   text-align: center;
   font-size: 18px;
   color: #fff;
