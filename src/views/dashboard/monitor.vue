@@ -41,13 +41,17 @@
             <Table size="large" :columns="columns1" :data="data1"></Table>
             <Table size="small" :columns="columns1" :data="data1"></Table>
         </div>
-
+        <pub-echarts :id="middleEcharts" :style="{width:'96%',height:'250px'}"></pub-echarts>
     </div>
 
 </template>
 <script>
+import pubEcharts from "./components/pubEcharts";
 export default {
   name: "monitor",
+  components:{
+    pubEcharts
+  },
   data() {
     return {
       columns1: [
