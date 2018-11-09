@@ -40,8 +40,9 @@
         <div class="public-content">
             <Table size="large" :columns="columns1" :data="data1"></Table>
             <Table size="small" :columns="columns1" :data="data1"></Table>
+         <pub-echarts :style="{width:'96%',height:'250px'}"></pub-echarts>
         </div>
-        <pub-echarts :id="middleEcharts" :style="{width:'96%',height:'250px'}"></pub-echarts>
+       
     </div>
 
 </template>

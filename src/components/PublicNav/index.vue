@@ -39,6 +39,7 @@ export default {
         slidesPerView: 5,
         centeredSlides: false,
         spaceBetween: 5,
+         loop: true,
         // pagination: {
         //   el: ".swiper-pagination",
         //   clickable: true
