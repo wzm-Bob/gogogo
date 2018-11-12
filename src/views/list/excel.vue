@@ -1,19 +1,5 @@
 <template>
     <div>
-        <div class="bread-area">
-            <Breadcrumb>
-                <BreadcrumbItem to="/">
-                    <Icon type="ios-home-outline"></Icon>纵马江湖
-                </BreadcrumbItem>
-                <BreadcrumbItem to="/components/breadcrumb">
-                    <Icon type="logo-buffer"></Icon> 豪情万丈
-                </BreadcrumbItem>
-                <BreadcrumbItem>
-                    <Icon type="ios-cafe"></Icon> 激情似火
-                </BreadcrumbItem>
-            </Breadcrumb>
-        </div>
-
         <div class="public-menu">
             <public-menu></public-menu>
         </div>

@@ -11,6 +11,7 @@
      :navData='menuData'></public-nav>
     </public-head>
     <div class="public-wrap">
+      <bread-crumb></bread-crumb>
       <router-view />
     </div>
   </div>
@@ -18,12 +19,14 @@
 <script>
 import PublicHead from "../components/PublicHead";
 import PublicNav from "../components/PublicNav";
+import BreadCrumb from "../components/Breadcrumb";
 import { getCurrMenu } from "../api/api.js";
 export default {
   name: "HomeLayout",
   components: {
     PublicHead,
-    PublicNav
+    PublicNav,
+    BreadCrumb
   },
   data() {
     return {
@@ -44,7 +47,6 @@ export default {
   }, */
   methods: {
    handlechildData(item){
-     debugger
      var _this = this;
        getCurrMenu(item.id).then(function(res) {
             _this.menuData = res.data
@@ -56,7 +58,7 @@ export default {
     var newsID = this.$route.query.id;
     var _this = this;
     getCurrMenu(newsID).then(function(res) {
-            _this.menuData = res.data
+        _this.menuData = res.data
     });
   },
   mounted() {

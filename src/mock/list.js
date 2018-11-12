@@ -254,7 +254,6 @@ export const menuData = Mock.mock(/\/api\/menu/, 'get', (config) => {
 })
 export const currmenuData = Mock.mock(/\/api\/currmenu/, 'get', (config) => {
   /* 路径用正则匹配 千万别用引号哦 */
-  debugger
   const list = [{
       name: "氣吞山河",
       path: "/dashboard/analysis",

@@ -18,17 +18,8 @@ export function logout() {
     })
 }
 export function getCurrMenu(id) {
-    debugger
     return request({
         url: '/api/currmenu',
-        method: 'get',
-        params:{id}
-    })
-}
-export function getMenu(id) {
-    debugger
-    return request({
-        url: '/api/menu',
         method: 'get',
         params:{id}
     })

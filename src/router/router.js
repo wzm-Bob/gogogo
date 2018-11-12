@@ -37,11 +37,13 @@ export const commonRouter = [{
   {
     path: "/ModuleEntry",
     name: "ModuleEntry",
+    meta: {title: '模塊頁'},
     component: ModuleEntry
   },
   {
     path: "/userCenter",
     name: "UserCenter",
+    meta: {title: '用戶中心'},
      component: () =>
        import("../components/UserCenter/index.vue")
   },
@@ -49,22 +51,26 @@ export const commonRouter = [{
     path: "/dashboard",
     name: "HomeLayout",
     component: HomeLayout,
+    meta: {title: '首頁'},
     redirect: '/dashboard/analysis',
     children: [{
         path: "/dashboard/analysis",
         name: "analysis",
+        meta: {title: '分析頁'},
         component: () =>
           import("../views/dashboard/analysis.vue")
       },
       {
         path: "/dashboard/workplace",
         name: "workplace",
+        meta: {title: '工作台'},
         component: () =>
           import("../views/dashboard/workplace.vue")
       },
       {
         path: "/dashboard/monitor",
         name: "monitor",
+        meta: {title: '監控頁'},
         component: () =>
           import("../views/dashboard/monitor.vue")
       }
@@ -78,12 +84,14 @@ export const commonRouter = [{
     children: [{
         path: "/list/excel",
         name: "excel",
+        meta: {title: '表格頁'},
         component: () =>
           import("../views/list/excel.vue")
       },
       {
         path: "/list/table",
         name: "table",
+        meta: {title: '列表頁'},
         component: () =>
           import("../views/list/table.vue")
       }

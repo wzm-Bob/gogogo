@@ -1,18 +1,5 @@
 <template>
     <div>
-        <div class="bread-area">
-            <Breadcrumb>
-                <BreadcrumbItem to="/">
-                    <Icon type="ios-home-outline"></Icon>首页
-                </BreadcrumbItem>
-                <BreadcrumbItem to="/components/breadcrumb">
-                    <Icon type="logo-buffer"></Icon> 金戈铁马
-                </BreadcrumbItem>
-                <BreadcrumbItem>
-                    <Icon type="ios-cafe"></Icon> 冲锋陷阵
-                </BreadcrumbItem>
-            </Breadcrumb>
-        </div>
         <div class="public-menu">
             <Menu  active-name="1">
                 <MenuGroup title="内容管理">
