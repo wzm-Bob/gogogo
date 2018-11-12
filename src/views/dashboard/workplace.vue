@@ -1,5 +1,6 @@
 <template>
     <div>
+      <BreadCrumb></BreadCrumb> 
         <div class="public-menu">
             <Menu  active-name="1">
                 <MenuGroup title="内容管理">

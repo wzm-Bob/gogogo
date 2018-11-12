@@ -1,5 +1,6 @@
 <template>
     <div>
+  <BreadCrumb></BreadCrumb> 
         <div class="public-menu">
             <public-menu></public-menu>
         </div>

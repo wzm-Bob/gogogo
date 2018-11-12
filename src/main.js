@@ -6,8 +6,11 @@ import iView from "iview";
 import mockdata from "./mock"
 /* mock数据全局灌入 */
 import "iview/dist/styles/iview.css";
+import BreadCrumb from "./components/Breadcrumb";
+Vue.component('BreadCrumb',BreadCrumb)
 
 Vue.config.productionTip = false
+
 Vue.use(iView)
 new Vue({
   router,
