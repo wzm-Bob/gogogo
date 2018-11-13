@@ -1,8 +1,8 @@
 <template>
     <div class="bread-area">
-        <BreadcrumbItem v-for="(item,index) in levelList" v-if="item" :key="item.path">
-            <span v-if="item.redirect==='noredirect'||index==levelList.length-1" class="no-redirect">{{item.meta.title}}</span>
-            <a v-else @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
+        <BreadcrumbItem v-for="(item,index) in levelList" v-if="item" :to="item.path" :key="item.path">
+            <span v-if="item.redirect==='noredirect'||index==levelList.length-1" class="no-redirect">/{{item.meta.title}}</span>
+            <a v-else  @click.prevent="handleLink(item)">{{ item.meta.title }}</a>
         </BreadcrumbItem>
     </div>
 </template>

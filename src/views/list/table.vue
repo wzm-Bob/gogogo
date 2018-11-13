@@ -11,7 +11,6 @@
                 <TabPane label="Linux" icon="logo-tux">标签三的内容</TabPane>
             </Tabs>
         </div>
-
     </div>
 </template>
 <script>
