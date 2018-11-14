@@ -1,6 +1,6 @@
 <template>
     <div>
-        <BreadCrumb></BreadCrumb> 
+        <BreadCrumb></BreadCrumb>
         <div class="public-menu">
             <public-menu></public-menu>
         </div>

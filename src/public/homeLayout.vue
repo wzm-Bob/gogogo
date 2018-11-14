@@ -63,24 +63,19 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .layout {
   width: 100%;
   height: 100%;
   position: relative;
 }
-.return-home {
-  height: 35px;
-  line-height: 35px;
-  position: relative;
-  top: 25px;
-}
 .ivu-dropdown,
 .ivu-dropdown-rel {
   height: 100%;
 }
-.ivu-dropdown-rel a {
-  top: -15px;
+.ivu-dropdown-rel>div{
+    height: 50%;
 }
 .public-wrap {
   position: absolute;

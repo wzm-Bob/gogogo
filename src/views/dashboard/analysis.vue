@@ -1,19 +1,18 @@
 <template>
-    <div>
-  <BreadCrumb></BreadCrumb> 
-        <div class="public-menu">
-            <public-menu></public-menu>
-        </div>
-        <div class="public-content">
-            <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
-            <div style="margin: 10px;overflow: hidden">
-                <div style="float: right;">
-                    <Page :total="100" :current="1" @on-change="changePage"></Page>
-                </div>
-            </div>
-        </div>
+  <div>
+    <BreadCrumb></BreadCrumb>
+    <div class="public-menu">
+      <public-menu></public-menu>
     </div>
-
+    <div class="public-content">
+      <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
+      <div style="margin: 10px;overflow: hidden">
+        <div style="float: right;">
+          <Page :total="100" :current="1" @on-change="changePage"></Page>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
 import PublicMenu from "../../components/PublicMenu";

@@ -4,11 +4,13 @@
         <div class="base-title">浩瀚中华文化管理局</div>
         <Dropdown  placement="bottom-start">
             <slot name='return'></slot>
-            <a href="javascript:void(0)">
+            <div class="user-center">
+               <a href="javascript:void(0)">
                 <Icon type="ios-contact" size="26" />
                 {{users.currentAuthority}}
                 <Icon type="ios-arrow-down"></Icon>
             </a>
+            </div>
             <DropdownMenu slot="list">
                 <DropdownItem>
                   <router-link to='/userCenter'><Icon type="ios-person-add" />&nbsp;个人中心</router-link>
@@ -52,11 +54,24 @@ export default {
   overflow: hidden;
   background: url(../../assets/img/header-bg.png) no-repeat center / cover;
 }
+.ivu-dropdown-rel{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-items: center;
+}
+.ivu-dropdown-rel>div{
+  display: flex;
+    height: 50%;
+    align-items: center;
+}
+.ivu-dropdown-rel .user-center{
+  height: 100%
+}
 .ivu-dropdown-rel a {
   color: #fff;
   font-size: 16px;
-  position: relative;
-  top:0;
 }
 .ivu-dropdown-rel a:hover {
   color: #fff;
@@ -72,6 +87,7 @@ export default {
 .ivu-dropdown {
   width: 135px;
   float: right;
+  height:100%;
 }
 .base-link-wrap {
   float: right;

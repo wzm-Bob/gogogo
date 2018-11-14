@@ -200,4 +200,5 @@ export default {
   text-shadow: 3px 4px 8px rgba(0, 0, 0, 0.3);
   text-indent: 0.15em;
 }
+
 </style>

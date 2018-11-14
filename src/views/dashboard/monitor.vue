@@ -1,44 +1,41 @@
 <template>
-    <div>
-      <BreadCrumb></BreadCrumb> 
-        <div class="public-menu">
-            <Menu  active-name="1">
-                <MenuGroup title="内容管理">
-                    <MenuItem name="1">
-                    <Icon type="md-document" />
-                    文章管理
-                    </MenuItem>
-                    <MenuItem name="2">
-                    <Icon type="md-chatbubbles" />
-                    评论管理
-                    </MenuItem>
-                </MenuGroup>
-                <MenuGroup title="统计分析">
-                    <MenuItem name="3">
-                    <Icon type="md-heart" />
-                    用户留存
-                    </MenuItem>
-                    <MenuItem name="4">
-                    <Icon type="md-leaf" />
-                    流失用户
-                    </MenuItem>
-                </MenuGroup>
-            </Menu>
-        </div>
-        <div class="public-content">
-            <Table size="large" :columns="columns1" :data="data1"></Table>
-            <Table size="small" :columns="columns1" :data="data1"></Table>
-         <pub-echarts :style="{width:'96%',height:'250px'}"></pub-echarts>
-        </div>
-       
+  <div>
+    <BreadCrumb></BreadCrumb>
+    <div class="public-menu">
+      <Menu active-name="1">
+        <MenuGroup title="内容管理">
+          <MenuItem name="1">
+          <Icon type="md-document" />
+          文章管理
+          </MenuItem>
+          <MenuItem name="2">
+          <Icon type="md-chatbubbles" />
+          评论管理
+          </MenuItem>
+        </MenuGroup>
+        <MenuGroup title="统计分析">
+          <MenuItem name="3">
+          <Icon type="md-heart" />
+          用户留存
+          </MenuItem>
+          <MenuItem name="4">
+          <Icon type="md-leaf" />
+          流失用户
+          </MenuItem>
+        </MenuGroup>
+      </Menu>
     </div>
-
+    <div class="public-content">
+      <Table size="large" :columns="columns1" :data="data1"></Table>
+      <pub-echarts :style="{width:'96%',height:'250px'}"></pub-echarts>
+    </div>
+  </div>
 </template>
 <script>
 import pubEcharts from "./components/pubEcharts";
 export default {
   name: "monitor",
-  components:{
+  components: {
     pubEcharts
   },
   data() {
