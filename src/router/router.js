@@ -48,10 +48,10 @@ export const commonRouter = [{
        import("../components/UserCenter/index.vue")
   },
   {
-    path: "/dashboard",
+    path: "/ModuleEntry",
     name: "HomeLayout",
     component: HomeLayout,
-    meta: {title: '首頁'},
+    meta: {title: '首页'},
     redirect: '/dashboard/analysis',
     children: [{
         path: "/dashboard/analysis",
@@ -77,9 +77,10 @@ export const commonRouter = [{
     ]
   },
   {
-    path: "/list",
+    path: "/ModuleEntry",
     name: "HomeLayout",
     component: HomeLayout,
+    meta: {title: '首页'},
     redirect: '/list/excel',
     children: [{
         path: "/list/excel",

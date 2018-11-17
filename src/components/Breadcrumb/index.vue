@@ -36,7 +36,7 @@ export default {
         first &&
         first.name.trim().toLocaleLowerCase() !== "HomeLayout".toLocaleLowerCase()
       ) {
-        matched = [{ path: "/analysis", meta: { title: "首頁" } }].concat(
+        matched = [{ path: "/ModuleEntry", meta: { title: "首頁" } }].concat(
           matched
         );
       }   
@@ -65,6 +65,9 @@ export default {
 };
 </script>
 <style>
+.no-redirect{
+  color: #999
+}
 </style>
 
 
