@@ -6,6 +6,7 @@ import ModuleEntry from "../public/moduleEntry.vue";
 
 Vue.use(Router);
 /* 这里使用官方推荐的懒加载import */
+// 不准忘记id:尝试
 export const commonRouter = [{
     path: "/",
     name: "LoginLayout",

@@ -2,7 +2,7 @@
   <div>
     <BreadCrumb></BreadCrumb>
     <div class="public-menu">
-      <public-menu></public-menu>
+      <public-tree></public-tree>
     </div>
     <div class="public-content">
       <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
@@ -15,15 +15,16 @@
   </div>
 </template>
 <script>
-import PublicMenu from "../../components/PublicMenu";
+import PublicTree from "../../components/PublicTree";
+import { getTable } from "../../api/api.js";
 export default {
   name: "analysis",
   components: {
-    PublicMenu
+    PublicTree
   },
   data() {
     return {
-      tableData1: this.mockTableData1(),
+      tableData: [],
       tableColumns1: [
         {
           title: "Name",
@@ -163,34 +164,7 @@ export default {
       ]
     };
   },
-  methods: {
-    mockTableData1() {
-      let data = [];
-      for (let i = 0; i < 10; i++) {
-        data.push({
-          name: "Business" + Math.floor(Math.random() * 100 + 1),
-          status: Math.floor(Math.random() * 3 + 1),
-          portrayal: ["City", "People", "Cost", "Life", "Entertainment"],
-          people: [
-            {
-              n: "People" + Math.floor(Math.random() * 100 + 1),
-              c: Math.floor(Math.random() * 1000000 + 100000)
-            },
-            {
-              n: "People" + Math.floor(Math.random() * 100 + 1),
-              c: Math.floor(Math.random() * 1000000 + 100000)
-            },
-            {
-              n: "People" + Math.floor(Math.random() * 100 + 1),
-              c: Math.floor(Math.random() * 1000000 + 100000)
-            }
-          ],
-          time: Math.floor(Math.random() * 7 + 1),
-          update: new Date()
-        });
-      }
-      return data;
-    },
+  methods: {  
     formatDate(date) {
       const y = date.getFullYear();
       let m = date.getMonth() + 1;
@@ -201,8 +175,14 @@ export default {
     },
     changePage() {
       // The simulated data is changed directly here, and the actual usage scenario should fetch the data from the server
-      this.tableData1 = this.mockTableData1();
+      this.tableData1 = this.getTable();
     }
+  },
+  mounted() {
+    getTable().then(function(res){
+      debugger
+      this.tableData=res.data
+    })
   }
 };
 </script>

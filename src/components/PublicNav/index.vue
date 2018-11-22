@@ -33,13 +33,13 @@ export default {
   methods: {
     _init_swiper() {
       let swiper = new Swiper(".swiper-container", {
+         loop:false,		
         initialSlide: 0,
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
         slidesPerView: 5,
-        centeredSlides: false,
+       // centeredSlides: false,
         spaceBetween: 5,
-         loop: true,
         // pagination: {
         //   el: ".swiper-pagination",
         //   clickable: true

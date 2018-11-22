@@ -30,6 +30,15 @@ export function getTreeData() {
         method: 'get'
     })
 }
+export function getTable(id) {
+    return request({
+        url: '/api/table',
+        method: 'get',
+        params: {
+            id
+        }
+    })
+}
 export function getUserInfo(token) {
     return request({
         url: '/user/info',

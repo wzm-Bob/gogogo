@@ -87,6 +87,8 @@ export default {
   list-style: none;
 }
 .index_ls_list li a {
+  position: relative;
+  z-index: 9999;
   width: 100%;
   height: 100%;
   display: inline-block;

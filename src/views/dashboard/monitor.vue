@@ -3,7 +3,7 @@
     <BreadCrumb></BreadCrumb>
     <div class="public-menu">
        <template>
-          <Menu ref="contactMenu" :accordion='true' width="auto" :open-names="openNames" :active-name="activeName" @on-select="handleSelect">
+          <Menu ref="contactMenu" :accordion='true' width="auto" :open-names="openNames" :active-name="activeName" >
             <template v-for="item in menuData">
               <side-menu-item  v-if="item.children&&item.children.length!==0"  :parent-item="item" :key="'menu-'+item.path">
               </side-menu-item>
@@ -29,6 +29,16 @@ export default {
   components: {
     sideMenuItem,
     pubEcharts
+  },
+  props: {
+    activeName: {
+      type: String,
+      default: "分析页"
+    },
+    openNames: {
+      type: Array,
+      default: () => ["dashboard"]
+    }
   },
   data() {
     return {
