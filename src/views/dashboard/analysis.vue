@@ -5,7 +5,7 @@
       <public-tree></public-tree>
     </div>
     <div class="public-content">
-      <Table :data="tableData1" :columns="tableColumns1" stripe></Table>
+      <Table :data="tableData" :columns="tableColumns1" stripe></Table>
       <div style="margin: 10px;overflow: hidden">
         <div style="float: right;">
           <Page :total="100" :current="1" @on-change="changePage"></Page>
@@ -27,11 +27,11 @@ export default {
       tableData: [],
       tableColumns1: [
         {
-          title: "Name",
+          title: "姓名",
           key: "name"
         },
         {
-          title: "Status",
+          title: "状态",
           key: "status",
           render: (h, params) => {
             const row = params.row;
@@ -61,7 +61,7 @@ export default {
           }
         },
         {
-          title: "Portrayal",
+          title: "政策法规",
           key: "portrayal",
           render: (h, params) => {
             return h(
@@ -83,7 +83,7 @@ export default {
                   [
                     h(
                       "ul",
-                      this.tableData1[params.index].portrayal.map(item => {
+                      this.tableData[params.index].portrayal.map(item => {
                         return h(
                           "li",
                           {
@@ -103,7 +103,7 @@ export default {
           }
         },
         {
-          title: "People",
+          title: "大家",
           key: "people",
           render: (h, params) => {
             return h(
@@ -125,7 +125,7 @@ export default {
                   [
                     h(
                       "ul",
-                      this.tableData1[params.index].people.map(item => {
+                      this.tableData[params.index].people.map(item => {
                         return h(
                           "li",
                           {
@@ -145,19 +145,20 @@ export default {
           }
         },
         {
-          title: "Sampling Time",
+          title: "创建时间",
           key: "time",
           render: (h, params) => {
             return h("div", "Almost" + params.row.time + "days");
           }
         },
         {
-          title: "Updated Time",
+          title: "更新时间",
           key: "update",
           render: (h, params) => {
+            debugger
             return h(
               "div",
-              this.formatDate(this.tableData1[params.index].update)
+              this.formatDate(this.tableData[params.index].update)
             );
           }
         }
@@ -166,6 +167,8 @@ export default {
   },
   methods: {  
     formatDate(date) {
+      debugger
+      var date = new Date(date);
       const y = date.getFullYear();
       let m = date.getMonth() + 1;
       m = m < 10 ? "0" + m : m;
@@ -174,14 +177,21 @@ export default {
       return y + "-" + m + "-" + d;
     },
     changePage() {
+      debugger
       // The simulated data is changed directly here, and the actual usage scenario should fetch the data from the server
-      this.tableData1 = this.getTable();
+      
+       this.getTable().then(function(res){
+         var list=res.data
+      return list
+      });
+      this.tableData =list
     }
   },
   mounted() {
+    var that= this
     getTable().then(function(res){
-      debugger
-      this.tableData=res.data
+      var list=res.data
+      that.tableData=list
     })
   }
 };

@@ -2,7 +2,7 @@
     <div>
         <BreadCrumb></BreadCrumb>
         <div class="public-menu">
-            <public-menu></public-menu>
+            <public-tree></public-tree>
         </div>
         <div class="public-content">
             <Input prefix="ios-contact" placeholder="Enter name" style="width: auto" />
@@ -18,11 +18,11 @@
     </div>
 </template>
 <script>
-import PublicMenu from "../../components/PublicMenu";
+import PublicMenu from "../../components/PublicTree";
 export default {
   name: "excel",
   components: {
-    PublicMenu
+    PublicTree
   }
 };
 </script>

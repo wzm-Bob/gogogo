@@ -2,7 +2,7 @@
     <div>
         <BreadCrumb></BreadCrumb>
         <div class="public-menu">
-            <public-menu></public-menu>
+            <public-tree></public-tree>
         </div>
         <div class="public-content">
             <Tabs>
@@ -14,11 +14,11 @@
     </div>
 </template>
 <script>
-import PublicMenu from "../../components/PublicMenu";
+import PublicTree from "../../components/PublicTree";
 export default {
   name: "table",
   components: {
-    PublicMenu
+    PublicTree
   }
 };
 </script>

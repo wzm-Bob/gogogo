@@ -5,22 +5,22 @@ export const tableData = Mock.mock(/\/api\/table/, 'get', (config) => {
         data.push({
             name: "Business" + Math.floor(Math.random() * 100 + 1),
             status: Math.floor(Math.random() * 3 + 1),
-            portrayal: ["City", "People", "Cost", "Life", "Entertainment"],
+            portrayal: ["城市", "人类", "花费", "生活", "环境"],
             people: [{
-                    n: "People" + Math.floor(Math.random() * 100 + 1),
+                    n: "人类" + Math.floor(Math.random() * 100 + 1),
                     c: Math.floor(Math.random() * 1000000 + 100000)
                 },
                 {
-                    n: "People" + Math.floor(Math.random() * 100 + 1),
+                    n: "人类" + Math.floor(Math.random() * 100 + 1),
                     c: Math.floor(Math.random() * 1000000 + 100000)
                 },
                 {
-                    n: "People" + Math.floor(Math.random() * 100 + 1),
+                    n: "人类" + Math.floor(Math.random() * 100 + 1),
                     c: Math.floor(Math.random() * 1000000 + 100000)
                 }
             ],
             time: Math.floor(Math.random() * 7 + 1),
-            update: new Date()
+            update: new Date(2020, 1, 1)
         });
     }
     return data;
