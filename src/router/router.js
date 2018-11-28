@@ -96,6 +96,16 @@ export const commonRouter = [{
         meta: {title: '列表頁'},
         component: () =>
           import("../views/list/table.vue")
+      },
+      {
+        // 冒号定制 正则匹配只能是数字
+        path: "/list/article/:id(\\d+)",
+        name: "article",
+        meta: {
+          title: '文章页'
+        },
+        component: () =>
+          import("../views/list/article.vue")
       }
     ]
   }
