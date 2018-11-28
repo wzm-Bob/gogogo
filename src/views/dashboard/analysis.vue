@@ -167,7 +167,6 @@ export default {
   },
   methods: {  
     formatDate(date) {
-      debugger
       var date = new Date(date);
       const y = date.getFullYear();
       let m = date.getMonth() + 1;
@@ -176,15 +175,14 @@ export default {
       d = d < 10 ? "0" + d : d;
       return y + "-" + m + "-" + d;
     },
-    changePage() {
-      debugger
+    changePage(e) {
       // The simulated data is changed directly here, and the actual usage scenario should fetch the data from the server
-      
-       this.getTable().then(function(res){
+      var that=this
+       getTable().then(function(res){
          var list=res.data
-      return list
+          that.tableData =list
       });
-      this.tableData =list
+     
     }
   },
   mounted() {

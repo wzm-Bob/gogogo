@@ -170,7 +170,6 @@ export const treeData = Mock.mock('/api/tree', 'get', (req, res) => {
 })
 export const menuData = Mock.mock(/\/api\/menu/, 'get', (config) => {
   /* 路径用正则匹配 千万别用引号哦 */
-  debugger
   const list = [{
       name: "氣吞山河",
       path: "/dashboard/analysis",

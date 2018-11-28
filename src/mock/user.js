@@ -3,7 +3,7 @@ export const tableData = Mock.mock(/\/api\/table/, 'get', (config) => {
     let data = [];
     for (let i = 0; i < 10; i++) {
         data.push({
-            name: "Business" + Math.floor(Math.random() * 100 + 1),
+            name: "瑶瑶" + Math.floor(Math.random() * 100 + 1),
             status: Math.floor(Math.random() * 3 + 1),
             portrayal: ["城市", "人类", "花费", "生活", "环境"],
             people: [{

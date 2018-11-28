@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-import PublicMenu from "../../components/PublicTree";
+import PublicTree from "../../components/PublicTree"
 export default {
   name: "excel",
   components: {
