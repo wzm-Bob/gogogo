@@ -303,7 +303,7 @@ export const currmenuData = Mock.mock(/\/api\/currmenu/, 'get', (config) => {
     },
     {
       name: "捨我其誰",
-      path: "/dashboard/monitor",
+      path: "/dashboard/change",
       icon: "index-item-bg-gzrz",
       difcls: "xxbs",
       id: 7,

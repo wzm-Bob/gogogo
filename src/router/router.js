@@ -74,6 +74,15 @@ export const commonRouter = [{
         meta: {title: '監控頁'},
         component: () =>
           import("../views/dashboard/monitor.vue")
+      },
+      {
+        path: "/dashboard/change",
+        name: "change",
+        meta: {
+          title: '增删该查'
+        },
+        component: () =>
+          import("../views/dashboard/change.vue")
       }
     ]
   },
