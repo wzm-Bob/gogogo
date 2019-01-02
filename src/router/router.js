@@ -66,7 +66,8 @@ export const commonRouter = [{
         name: "workplace",
         meta: {title: '工作台'},
         component: () =>
-          import("../views/dashboard/workplace.vue")
+          import("../views/dashboard/test.vue")
+          //import("../views/dashboard/workplace.vue")
       },
       {
         path: "/dashboard/monitor",

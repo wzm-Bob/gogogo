@@ -23,6 +23,7 @@
     "@vue/cli-plugin-babel": "^3.0.5",
     "@vue/cli-plugin-eslint": "^3.0.5",
     "@vue/cli-service": "^3.0.5",
+    "gojs": "^1.8.35",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
