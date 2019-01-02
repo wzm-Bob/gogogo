@@ -28,7 +28,6 @@ const mutations = {
     state.token = token
   },
   SET_USER(state, payload) {
-    debugger
    /*  state.currentAuthority = payload.currentAuthority
     state.status = payload.status */
     state=Object.assign(state,payload.info);
