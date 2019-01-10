@@ -4,6 +4,7 @@
     </public-head>
     <div class="public-wrap">
     用户中心
+    <p class="typing">中英文mixed打字effect，作者：张鑫旭</p>
     </div>
   </div>
 </template>
@@ -43,5 +44,23 @@ export default {
   width: 240px;
   height: auto;
   float: left;
+}
+.typing {
+    width: 18.5em; height: 1.25em;
+    border-right: 1px solid transparent;
+    animation: typing 3.5s steps(37, end), blink-caret .75s step-end infinite;
+    font-family: Consolas, Monaco;
+    word-break: break-all;
+    overflow: hidden;
+}
+/* 打印效果 */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 18.5em; }
+}
+/* 光标闪啊闪 */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: currentColor; }
 }
 </style>

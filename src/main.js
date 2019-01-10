@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from "./router/router";
 import store from "./store/index";
 import iView from "iview";
+import gojs from "gojs";
 import "iview/dist/styles/iview.css";
 import mockdata from "./mock"
 import './authrouter'
@@ -11,6 +12,7 @@ import './authrouter'
 import BreadCrumb from "./components/Breadcrumb";
 Vue.component('BreadCrumb',BreadCrumb)
 Vue.use(iView)
+Vue.use(gojs)
 Vue.config.productionTip = false
 
 
