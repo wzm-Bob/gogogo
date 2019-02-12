@@ -4,7 +4,7 @@
     </public-head>
     <div class="public-wrap">
     用户中心
-    <p class="typing">中英文mixed打字effect，作者：张鑫旭</p>
+    <p class="typing">这里是中英文打字效果 gsdgfgsdfhjcmdvn 恢复规划尽快发货看是加快速度话费卡十大分类看水电费干活干活</p>
     </div>
   </div>
 </template>
