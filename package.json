@@ -10,7 +10,7 @@
     "mockdev": "npm run mock & npm run dev"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.13.0",
     "iview": "^3.1.3",
