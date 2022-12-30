@@ -22,14 +22,14 @@
     "ztree": "^3.5.24"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.5",
-    "@vue/cli-plugin-eslint": "^3.0.5",
-    "@vue/cli-service": "^3.0.5",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "babel-plugin-component": "^1.1.1",
     "gojs": "^1.8.35",
     "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^13.2.0",
     "swiper": "^4.4.1",
     "vue-template-compiler": "^2.5.17"
   }
